@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mikemillar.basicroutesheet.Controller"
+            fx:id="mainBorderPane">
+    <top>
+        <!--    Used to Main System Toolbars-->
+        <VBox>
+            <MenuBar>
+                <!--            Main Menu Function Bar-->
+                <Menu text="File">
+                    <items>
+                        <MenuItem text="New Repair Order"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Exit" />
+                    </items>
+                </Menu>
+                <Menu text="RO">
+                    <items>
+                        <MenuItem text="Open RO Details" />
+                    </items>
+                </Menu>
+            </MenuBar>
+        </VBox>
+    </top>
+    <center>
+        <!--    Used for main RO display-->
+        <VBox>
+            <TableView fx:id="activeTable" VBox.vgrow="ALWAYS">
+                <!--            Main Display for ROs-->
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+                <columns>
+                    <TableColumn fx:id="repairOrderNumCol" text="RO #">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="repairOrderNumber" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="tagCol" text="Tag #">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="tagNumber" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="yearCol" text="Year">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="vehicleYear" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="makeCol" text="Make">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="vehicleMake" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="modelCal" text="Model">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="vehicleModel" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="mileageCol" text="Mileage">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="vehicleMileage" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="customerNameCol" text="Customer Name">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="customerName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="statusCol" text="Vehicle Status">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="currentStatus" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="adviserCol" text="Adviser">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="adviserName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="techCol" text="Technician">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="technicianName" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="timeDueCol" text="Time Due">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="timeDue" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="elapsedCol" text="Elapsed Time">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="elapsedTime" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+            </TableView>
+        </VBox>
+    </center>
+    <bottom>
+        <!--    Used for quick display of selected RO-->
+        <VBox alignment="BOTTOM_LEFT" maxHeight="150.0" minHeight="150.0" prefHeight="150.0" BorderPane.alignment="BOTTOM_LEFT">
+
+        </VBox>
+    </bottom>
+</BorderPane>

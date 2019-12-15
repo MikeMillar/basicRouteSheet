@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.collections.FXCollections?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.String?>
+<DialogPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.mikemillar.basicroutesheet.DialogController"
+            prefHeight="400.0" prefWidth="1024" maxHeight="400">
+    <content>
+        <HBox>
+            <GridPane>
+                <Label text="RO Number" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="roNumField" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <Label text="Tag Number" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <TextField fx:id="tagNumField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="Year" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="yearField" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <Label text="Make" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                <TextField fx:id="makeField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                <Label text="Model" GridPane.rowIndex="0" GridPane.columnIndex="4"/>
+                <TextField fx:id="modelField" GridPane.rowIndex="1" GridPane.columnIndex="4"/>
+                <Label text="Mileage" GridPane.rowIndex="0" GridPane.columnIndex="5"/>
+                <TextField fx:id="mileField" GridPane.rowIndex="1" GridPane.columnIndex="5"/>
+                <Label text="Customer Name" GridPane.rowIndex="0" GridPane.columnIndex="6"/>
+                <TextField fx:id="customerNameField" GridPane.rowIndex="1" GridPane.columnIndex="6"/>
+                <Label text="Phone Number" GridPane.rowIndex="0" GridPane.columnIndex="7"/>
+                <TextField fx:id="phoneNumField" GridPane.rowIndex="1" GridPane.columnIndex="7"/>
+                <Label text="Jobs" GridPane.rowIndex="0" GridPane.columnIndex="8"/>
+                <TextField fx:id="jobsField" GridPane.rowIndex="1" GridPane.columnIndex="8"/>
+                <Label text="Adviser" GridPane.rowIndex="0" GridPane.columnIndex="9"/>
+                <TextField fx:id="adviserField" GridPane.rowIndex="1" GridPane.columnIndex="9"/>
+                <Label text="Tech" GridPane.rowIndex="0" GridPane.columnIndex="10"/>
+                <TextField fx:id="techField" GridPane.rowIndex="1" GridPane.columnIndex="10"/>
+                <Label text="Time Due" GridPane.rowIndex="0" GridPane.columnIndex="11"/>
+                <TextField fx:id="dueTime" GridPane.rowIndex="1" GridPane.columnIndex="11"/>
+                <Label text="Waiting?" GridPane.rowIndex="0" GridPane.columnIndex="12"/>
+                <ChoiceBox fx:id="waiterField" GridPane.rowIndex="1" GridPane.columnIndex="12">
+                    <items>
+                        <FXCollections fx:factory="observableArrayList">
+                            <String fx:value="Yes"/>
+                            <String fx:value="No"/>
+                        </FXCollections>
+                    </items>
+                </ChoiceBox>
+                <Label text="Notes" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextArea fx:id="notesField" GridPane.rowIndex="3" GridPane.columnIndex="0" GridPane.columnSpan="12"/>
+            </GridPane>
+        </HBox>
+    </content>
+
+</DialogPane>

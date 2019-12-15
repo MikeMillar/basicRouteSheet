@@ -47,22 +47,22 @@
                     </TableColumn>
                     <TableColumn fx:id="yearCol" text="Year">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleYear" />
+                            <PropertyValueFactory property="year" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn fx:id="makeCol" text="Make">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleMake" />
+                            <PropertyValueFactory property="make" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn fx:id="modelCal" text="Model">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleModel" />
+                            <PropertyValueFactory property="model" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn fx:id="mileageCol" text="Mileage">
                         <cellValueFactory>
-                            <PropertyValueFactory property="vehicleMileage" />
+                            <PropertyValueFactory property="mileage" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn fx:id="customerNameCol" text="Customer Name">
@@ -70,19 +70,24 @@
                             <PropertyValueFactory property="customerName" />
                         </cellValueFactory>
                     </TableColumn>
+                    <TableColumn fx:id="phoneNumberCol" text="Phone Number">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="phoneNumber"/>
+                        </cellValueFactory>
+                    </TableColumn>
                     <TableColumn fx:id="statusCol" text="Vehicle Status">
                         <cellValueFactory>
-                            <PropertyValueFactory property="currentStatus" />
+                            <PropertyValueFactory property="status" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn fx:id="adviserCol" text="Adviser">
                         <cellValueFactory>
-                            <PropertyValueFactory property="adviserName" />
+                            <PropertyValueFactory property="adviser" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn fx:id="techCol" text="Technician">
                         <cellValueFactory>
-                            <PropertyValueFactory property="technicianName" />
+                            <PropertyValueFactory property="tech" />
                         </cellValueFactory>
                     </TableColumn>
                     <TableColumn fx:id="timeDueCol" text="Time Due">
@@ -93,6 +98,11 @@
                     <TableColumn fx:id="elapsedCol" text="Elapsed Time">
                         <cellValueFactory>
                             <PropertyValueFactory property="elapsedTime" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn fx:id="timeCreated" text="Time Created">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="timeCreated"/>
                         </cellValueFactory>
                     </TableColumn>
                 </columns>

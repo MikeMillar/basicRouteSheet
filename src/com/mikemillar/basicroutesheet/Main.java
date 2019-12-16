@@ -1,5 +1,6 @@
 package com.mikemillar.basicroutesheet;
 
+import com.mikemillar.basicroutesheet.datamodels.RepairOrderData;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -15,8 +16,17 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 1024, 760));
         primaryStage.show();
     }
+    
+    @Override
+    public void init() throws Exception {
+        RepairOrderData.getInstance().loadLists();
+    }
 
-
+    @Override
+    public void stop() throws Exception {
+        RepairOrderData.getInstance().saveLists();
+    }
+    
     public static void main(String[] args) {
         launch(args);
     }

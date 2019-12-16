@@ -3,14 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/basicRouteSheet/com/mikemillar/basicroutesheet/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basicRouteSheet/com/mikemillar/basicroutesheet/Controller.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basicRouteSheet/com/mikemillar/basicroutesheet/datamodels/RepairOrderData.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basicRouteSheet/com/mikemillar/basicroutesheet/datamodels/RepairOrderData.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/DialogController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/DialogController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/RepairOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/RepairOrder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/RepairOrderData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/RepairOrderData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/main.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/newRepairOrderDialog.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/newRepairOrderDialog.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/module-info.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -87,6 +83,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -100,6 +97,12 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\Programming Projects\Java\basicRouteSheet\src\" />
+      <recent name="E:\Programming Projects\Java\basicRouteSheet\src\com\mikemillar\basicroutesheet\" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">

@@ -26,6 +26,10 @@ public class RepairOrder {
     private String notes;
     private boolean isWaiting;
     
+    public RepairOrder() {
+    
+    }
+    
     public RepairOrder(String roNum, String tag, String year, String make, String model, String mileage,
                        String custName, String phoneNum, String jobs, String adviser, String tech,
                        String timeDue, String notes, String waiter) {
@@ -121,12 +125,42 @@ public class RepairOrder {
         this.phoneNumber = phoneNumber;
     }
     
-    public statusOptions getStatus() {
-        return status;
+    public String getStatus() {
+        switch (status) {
+            case NO_STATUS:
+                return "No Status";
+            case ATTN_ADV:
+                return "Attention Adviser";
+            case ATTN_TECH:
+                return "Attention Tech";
+            case AUTH_HOLD:
+                return "Authorization Hold";
+            case ATTN_PARTS:
+                return "Attention Parts";
+            case PARTS_HOLD:
+                return "Parts Hold";
+            case VEH_PICK_UP:
+                return "Vehicle Picked Up";
+            case REC_DECLINED:
+                return "Declined Recommendations";
+            case TECH_WORKING:
+                return "Tech Working on Vehicle";
+            case VEH_COMPLETE:
+                return "Vehicle Complete";
+            case PARTS_WORKING:
+                return "Parts Working";
+            case VEH_READY_FOR_DEL:
+                return "Vehicle ready for delivery";
+        }
+        return null;
     }
     
     public void setStatus(statusOptions status) {
         this.status = status;
+    }
+    
+    public void setStatus(String status) {
+        // add way to set status via string
     }
     
     public String getJobs() {
@@ -157,6 +191,10 @@ public class RepairOrder {
         return timeCreated;
     }
     
+    public String getTimeCreatedString() {
+        return timeCreated.toString();
+    }
+    
     public LocalDateTime getElapsedTime() {
         return elapsedTime;
     }
@@ -165,8 +203,19 @@ public class RepairOrder {
         return timeClosed;
     }
     
+    public String getTimeClosedString() {
+        if (this.timeClosed != null) {
+            return timeClosed.toString();
+        }
+        return null;
+    }
+    
     public void setTimeClosed(LocalDateTime timeClosed) {
         this.timeClosed = timeClosed;
+    }
+    
+    public void setTimeClosed(String timeClosed) {
+        // add way to store variable
     }
     
     public String getTimeDue() {
@@ -185,8 +234,12 @@ public class RepairOrder {
         this.notes = notes;
     }
     
-    public boolean isWaiting() {
-        return isWaiting;
+    public String isWaiting() {
+        if (isWaiting) {
+            return "Yes";
+        } else {
+            return "No";
+        }
     }
     
     public void setWaiting(String waiting) {
@@ -198,5 +251,17 @@ public class RepairOrder {
             System.out.println("Setting waiter to false");
             isWaiting = false;
         }
+    }
+    
+    public void setTimeCreated(LocalDateTime timeCreated) {
+        this.timeCreated = timeCreated;
+    }
+    
+    public void setTimeCreated(String timeCreated) {
+        // Add a way to save variable
+    }
+    
+    public void setElapsedTime(LocalDateTime elapsedTime) {
+        this.elapsedTime = elapsedTime;
     }
 }

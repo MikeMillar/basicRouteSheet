@@ -7,9 +7,9 @@ public class RepairOrderData {
     
     private static RepairOrderData instance = new RepairOrderData();
     
-    private static ObservableList<RepairOrder> roList;
-    private static ObservableList<RepairOrder> inactiveList;
-    private static ObservableList<RepairOrder> sopInactiveList;
+    public static ObservableList<RepairOrder> roList;
+    public static ObservableList<RepairOrder> inactiveList;
+    public static ObservableList<RepairOrder> sopInactiveList;
     
     private RepairOrderData() {
         roList = FXCollections.observableArrayList();
@@ -17,7 +17,7 @@ public class RepairOrderData {
         sopInactiveList = FXCollections.observableArrayList();
     }
     
-    public RepairOrderData getInstance() {
+    public static RepairOrderData getInstance() {
         return instance;
     }
     

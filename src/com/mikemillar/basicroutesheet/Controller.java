@@ -1,11 +1,14 @@
 package com.mikemillar.basicroutesheet;
 
 import com.mikemillar.basicroutesheet.datamodels.RepairOrder;
+import com.mikemillar.basicroutesheet.datamodels.RepairOrderData;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.Dialog;
+import javafx.scene.control.SelectionMode;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
@@ -14,9 +17,11 @@ import java.util.Optional;
 public class Controller {
     
     @FXML private BorderPane mainBorderPane;
+    @FXML private TableView activeTable;
 
     public void initialize() {
-    
+        activeTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
+        activeTable.setItems(RepairOrderData.getRoList());
     }
     
     public void showNewRODialog() {

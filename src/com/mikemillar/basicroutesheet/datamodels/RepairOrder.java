@@ -22,13 +22,13 @@ public class RepairOrder {
     private LocalDateTime timeCreated;
     private LocalDateTime elapsedTime;
     private LocalDateTime timeClosed;
-    private LocalDateTime timeDue;
+    private String timeDue;
     private String notes;
     private boolean isWaiting;
     
     public RepairOrder(String roNum, String tag, String year, String make, String model, String mileage,
                        String custName, String phoneNum, String jobs, String adviser, String tech,
-                       String timeDue, String notes, boolean waiter) {
+                       String timeDue, String notes, String waiter) {
         this.repairOrderNumber = parseInt(roNum);
         this.tagNumber = tag;
         this.year = parseInt(year);
@@ -41,9 +41,9 @@ public class RepairOrder {
         this.adviser = adviser;
         this.tech = tech;
         this.timeCreated = LocalDateTime.now();
-//        this.timeDue = (LocalDateTime)timeDue;  need to determine how this will be done
+        this.timeDue = timeDue;
         this.notes = notes;
-        this.isWaiting = waiter;
+        setWaiting(waiter);
         this.status = statusOptions.NO_STATUS;
     }
     
@@ -169,11 +169,11 @@ public class RepairOrder {
         this.timeClosed = timeClosed;
     }
     
-    public LocalDateTime getTimeDue() {
+    public String getTimeDue() {
         return timeDue;
     }
     
-    public void setTimeDue(LocalDateTime timeDue) {
+    public void setTimeDue(String timeDue) {
         this.timeDue = timeDue;
     }
     
@@ -189,7 +189,14 @@ public class RepairOrder {
         return isWaiting;
     }
     
-    public void setWaiting(boolean waiting) {
-        isWaiting = waiting;
+    public void setWaiting(String waiting) {
+        System.out.println(waiting);
+        if (waiting.equals("Yes")) {
+            System.out.println("Setting waiter to true");
+            isWaiting = true;
+        } else if (waiting.equals("No")) {
+            System.out.println("Setting waiter to false");
+            isWaiting = false;
+        }
     }
 }

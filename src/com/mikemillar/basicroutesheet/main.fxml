@@ -13,14 +13,20 @@
                 <!--            Main Menu Function Bar-->
                 <Menu text="File">
                     <items>
-                        <MenuItem text="New Repair Order" onAction="#showNewRODialog"/>
+                        <MenuItem text="Save" />
                         <SeparatorMenuItem/>
                         <MenuItem text="Exit" onAction="#handleExit"/>
                     </items>
                 </Menu>
                 <Menu text="RO">
                     <items>
+                        <MenuItem text="New Repair Order" onAction="#showNewRODialog"/>
+                        <SeparatorMenuItem/>
                         <MenuItem text="Open RO Details" />
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Close RO with SOP"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Close RO no SOP"/>
                     </items>
                 </Menu>
             </MenuBar>

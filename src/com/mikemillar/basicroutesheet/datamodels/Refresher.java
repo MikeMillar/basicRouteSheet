@@ -30,7 +30,6 @@ public final class Refresher {
         
         @Override
         public void run() {
-            RepairOrderData.getInstance().updateList();
             controller.refreshList();
         }
     }

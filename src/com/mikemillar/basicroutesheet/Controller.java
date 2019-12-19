@@ -25,7 +25,7 @@ public class Controller {
     public void initialize() {
         activeTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         activeTable.setItems(RepairOrderData.getRoList());
-        refresher = new Refresher(this,1000,1000);
+        refresher = new Refresher(this,60000,60000);
         Main.setRefresher(refresher);
     }
     
@@ -55,6 +55,7 @@ public class Controller {
     }
     
     public void refreshList() {
+        RepairOrderData.getInstance().updateList();
         activeTable.refresh();
     }
     

@@ -19,4 +19,23 @@
 	<notes>test note</notes>
 	<is_waiting>Yes</is_waiting>
 </repair_order>
+<repair_order>
+	<ro_number>123456</ro_number>
+	<tag_number>1234</tag_number>
+	<year>1999</year>
+	<make>Toyota</make>
+	<model>Camry</model>
+	<mileage>52000</mileage>
+	<customer_name>Bob Duran</customer_name>
+	<phone_number>555-555-5555</phone_number>
+	<status>No Status</status>
+	<jobs>Timing Belt</jobs>
+	<adviser>Mike Millar</adviser>
+	<tech>Kyle Siever</tech>
+	<time_created>2019-12-18T21:09:42.411647800</time_created>
+	<time_closed></time_closed>
+	<repair_due>5:30 PM</repair_due>
+	<notes>t-belt</notes>
+	<is_waiting>No</is_waiting>
+</repair_order>
 </active_list>

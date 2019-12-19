@@ -1,5 +1,6 @@
 package com.mikemillar.basicroutesheet.datamodels;
 
+import com.mikemillar.basicroutesheet.Controller;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 
@@ -88,6 +89,12 @@ public class RepairOrderData {
     
     public static ObservableList<RepairOrder> getSopInactiveList() {
         return sopInactiveList;
+    }
+    
+    public void updateList() {
+        for (RepairOrder ro: roList) {
+            ro.setElapsedTime();
+        }
     }
     
     public void loadLists() {

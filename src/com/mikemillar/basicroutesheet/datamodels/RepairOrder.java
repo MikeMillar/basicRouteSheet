@@ -1,5 +1,8 @@
 package com.mikemillar.basicroutesheet.datamodels;
 
+import javafx.fxml.FXML;
+import javafx.scene.control.TableView;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;

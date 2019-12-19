@@ -1,5 +1,6 @@
 package com.mikemillar.basicroutesheet;
 
+import com.mikemillar.basicroutesheet.datamodels.Refresher;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrder;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrderData;
 import javafx.application.Platform;
@@ -16,12 +17,16 @@ import java.util.Optional;
 
 public class Controller {
     
+    public Refresher refresher;
+    
     @FXML private BorderPane mainBorderPane;
     @FXML private TableView activeTable;
 
     public void initialize() {
         activeTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
         activeTable.setItems(RepairOrderData.getRoList());
+        refresher = new Refresher(this,1000,1000);
+        Main.setRefresher(refresher);
     }
     
     public void showNewRODialog() {
@@ -49,11 +54,16 @@ public class Controller {
         }
     }
     
+    public void refreshList() {
+        activeTable.refresh();
+    }
+    
     public void handleSave() {
         RepairOrderData.getInstance().saveLists();
     }
     
     public void handleExit() {
+        refresher.end();
         Platform.exit();
     }
     

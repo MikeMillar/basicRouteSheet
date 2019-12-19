@@ -1,8 +1,11 @@
 package com.mikemillar.basicroutesheet.datamodels;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class RepairOrder {
+    
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a MM/dd/yyyy");
     
     private enum statusOptions {NO_STATUS, ATTN_TECH, ATTN_ADV, ATTN_PARTS, TECH_WORKING, VEH_COMPLETE,
         VEH_READY_FOR_DEL, VEH_PICK_UP, PARTS_WORKING, PARTS_HOLD, AUTH_HOLD, REC_DECLINED}
@@ -19,9 +22,12 @@ public class RepairOrder {
     private String jobs;
     private String adviser;
     private String tech;
-    private LocalDateTime timeCreated;
-    private LocalDateTime elapsedTime;
-    private LocalDateTime timeClosed;
+    private LocalDateTime tCreated;
+    private String timeCreated;
+    private LocalDateTime eTime;
+    private String elapsedTime;
+    private LocalDateTime tClosed;
+    private String timeClosed;
     private String timeDue;
     private String notes;
     private boolean isWaiting;
@@ -44,7 +50,8 @@ public class RepairOrder {
         this.jobs = jobs;
         this.adviser = adviser;
         this.tech = tech;
-        this.timeCreated = LocalDateTime.now();
+        this.tCreated = LocalDateTime.now();
+        this.timeCreated = this.tCreated.format(formatter);
         this.timeDue = timeDue;
         this.notes = notes;
         setWaiting(waiter);
@@ -161,6 +168,51 @@ public class RepairOrder {
     
     public void setStatus(String status) {
         // add way to set status via string
+        try {
+            switch (status) {
+                case "No Status":
+                    this.status = statusOptions.NO_STATUS;
+                    break;
+                case "Attention Adviser":
+                    this.status = statusOptions.ATTN_ADV;
+                    break;
+                case "Attention Tech":
+                    this.status = statusOptions.ATTN_TECH;
+                    break;
+                case "Authorization Hold":
+                    this.status = statusOptions.AUTH_HOLD;
+                    break;
+                case "Attention Parts":
+                    this.status = statusOptions.ATTN_PARTS;
+                    break;
+                case "Parts Hold":
+                    this.status = statusOptions.PARTS_HOLD;
+                    break;
+                case "Vehicle Picked Up":
+                    this.status = statusOptions.VEH_PICK_UP;
+                    break;
+                case "Declined Recommendations":
+                    this.status = statusOptions.REC_DECLINED;
+                    break;
+                case "Tech Working on Vehicle":
+                    this.status = statusOptions.TECH_WORKING;
+                    break;
+                case "Vehicle Complete":
+                    this.status = statusOptions.VEH_COMPLETE;
+                    break;
+                case "Parts Working":
+                    this.status = statusOptions.PARTS_WORKING;
+                    break;
+                case "Vehicle ready for delivery":
+                    this.status = statusOptions.VEH_READY_FOR_DEL;
+                    break;
+                default:
+                    System.out.println("Unable to set status. Incorrect data passed");
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Unable to set status. No data found");
+            e.printStackTrace();
+        }
     }
     
     public String getJobs() {
@@ -187,35 +239,47 @@ public class RepairOrder {
         this.tech = tech;
     }
     
-    public LocalDateTime getTimeCreated() {
+    public LocalDateTime getTCreated() {
+        return tCreated;
+    }
+    
+    public String getTimeCreated() {
         return timeCreated;
     }
     
-    public String getTimeCreatedString() {
-        return timeCreated.toString();
+    public String getTCreatedString() {
+        return tCreated.toString();
     }
     
-    public LocalDateTime getElapsedTime() {
+    public LocalDateTime getTime() {
+        return eTime;
+    }
+    
+    public String getElapsedTime() {
         return elapsedTime;
     }
     
-    public LocalDateTime getTimeClosed() {
+    public LocalDateTime getTClosed() {
+        return tClosed;
+    }
+    
+    public String getTimeClosed() {
         return timeClosed;
     }
     
-    public String getTimeClosedString() {
-        if (this.timeClosed != null) {
-            return timeClosed.toString();
+    public String getTClosedString() {
+        if (this.tClosed != null) {
+            return tClosed.toString();
         }
         return null;
     }
     
-    public void setTimeClosed(LocalDateTime timeClosed) {
-        this.timeClosed = timeClosed;
+    public void setTClosed(LocalDateTime timeClosed) {
+        this.tClosed = timeClosed;
     }
     
     public void setTimeClosed(String timeClosed) {
-        // add way to store variable
+        this.timeClosed = timeClosed;
     }
     
     public String getTimeDue() {
@@ -253,15 +317,25 @@ public class RepairOrder {
         }
     }
     
+    public void setTCreated(LocalDateTime timeCreated) {
+        this.tCreated = timeCreated;
+    }
+    
     public void setTimeCreated(LocalDateTime timeCreated) {
-        this.timeCreated = timeCreated;
+        this.timeCreated = timeCreated.format(formatter);
+    }
+    
+    public void setTClosed(String timeClosed) {
+        this.timeClosed = timeClosed;
     }
     
     public void setTimeCreated(String timeCreated) {
         // Add a way to save variable
+        this.tCreated = LocalDateTime.parse(timeCreated);
+        this.setTimeCreated(tCreated);
     }
     
     public void setElapsedTime(LocalDateTime elapsedTime) {
-        this.elapsedTime = elapsedTime;
+        this.eTime = elapsedTime;
     }
 }

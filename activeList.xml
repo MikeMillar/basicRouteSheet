@@ -1,3 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <active_list>
+<repair_order>
+	<ro_number>123456</ro_number>
+	<tag_number>1234</tag_number>
+	<year>2016</year>
+	<make>Honda</make>
+	<model>CR-V</model>
+	<mileage>52488</mileage>
+	<customer_name>Mike Millar</customer_name>
+	<phone_number>505-907-5897</phone_number>
+	<status>No Status</status>
+	<jobs>LOF</jobs>
+	<adviser>Mike Millar</adviser>
+	<tech>Andre Perry</tech>
+	<time_created>2019-12-18T20:02:47.950033700</time_created>
+	<time_closed></time_closed>
+	<repair_due>9:30 AM</repair_due>
+	<notes>test note</notes>
+	<is_waiting>Yes</is_waiting>
+</repair_order>
 </active_list>

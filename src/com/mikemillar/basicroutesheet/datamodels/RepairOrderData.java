@@ -729,8 +729,8 @@ public class RepairOrderData {
         createNode(eventWriter, JOBS, ro.getJobs());
         createNode(eventWriter, ADVISER, ro.getAdviser());
         createNode(eventWriter, TECH, ro.getTech());
-        createNode(eventWriter, TIME_CREATED, ro.getTimeCreatedString());
-        createNode(eventWriter, TIME_CLOSED, ro.getTimeClosedString());
+        createNode(eventWriter, TIME_CREATED, ro.getTCreatedString());
+        createNode(eventWriter, TIME_CLOSED, ro.getTClosedString());
         createNode(eventWriter, TIME_DUE, ro.getTimeDue());
         createNode(eventWriter, NOTES, ro.getNotes());
         createNode(eventWriter, IS_WAITING, ro.isWaiting());

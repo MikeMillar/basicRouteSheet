@@ -291,8 +291,13 @@ public class RepairOrder {
         this.timeDue = timeDue;
     }
     
-    public Note getNotes() {
-        return notes;
+    public String getNotes() {
+        try {
+            return notes.getNote();
+        } catch (NullPointerException e) {
+            System.out.println("Unable to fetch notes. no notes stored");
+            return null;
+        }
     }
     
     public void setNotes(String notes) {
@@ -317,9 +322,12 @@ public class RepairOrder {
     }
     
     public void setWaiting(String waiting) {
+        System.out.println(waiting);
         if (waiting.equals("Yes")) {
+            System.out.println("Setting waiter to true");
             isWaiting = true;
         } else if (waiting.equals("No")) {
+            System.out.println("Setting waiter to false");
             isWaiting = false;
         }
     }

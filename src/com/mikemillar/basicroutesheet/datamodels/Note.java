@@ -21,6 +21,8 @@ public class Note {
     
     public void setNote(String note) {
         this.note = note;
+        this.timeCreated = LocalDateTime.now();
+        this.timeCreatedString = this.timeCreated.format(formatter);
     }
     
     public RepairOrder getRo() {

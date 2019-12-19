@@ -2,6 +2,7 @@ package com.mikemillar.basicroutesheet.datamodels;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 public class RepairOrder {
     
@@ -24,12 +25,12 @@ public class RepairOrder {
     private String tech;
     private LocalDateTime tCreated;
     private String timeCreated;
-    private LocalDateTime eTime;
     private String elapsedTime;
     private LocalDateTime tClosed;
     private String timeClosed;
     private String timeDue;
-    private String notes;
+    private Note notes;
+//    private String notes;
     private boolean isWaiting;
     
     public RepairOrder() {
@@ -53,9 +54,10 @@ public class RepairOrder {
         this.tCreated = LocalDateTime.now();
         this.timeCreated = this.tCreated.format(formatter);
         this.timeDue = timeDue;
-        this.notes = notes;
+        this.notes = new Note(this, notes);
         setWaiting(waiter);
         this.status = statusOptions.NO_STATUS;
+        setElapsedTime();
     }
     
     public int parseInt(String s) {
@@ -251,10 +253,6 @@ public class RepairOrder {
         return tCreated.toString();
     }
     
-    public LocalDateTime getTime() {
-        return eTime;
-    }
-    
     public String getElapsedTime() {
         return elapsedTime;
     }
@@ -290,12 +288,21 @@ public class RepairOrder {
         this.timeDue = timeDue;
     }
     
-    public String getNotes() {
+    public Note getNotes() {
         return notes;
     }
     
     public void setNotes(String notes) {
-        this.notes = notes;
+        try {
+            if (this.notes == null) {
+                this.notes = new Note(this, notes);
+            } else {
+                this.notes.setNote(notes);
+            }
+        } catch (NullPointerException e) {
+            System.out.println("Unable to set note");
+            e.printStackTrace();
+        }
     }
     
     public String isWaiting() {
@@ -333,9 +340,41 @@ public class RepairOrder {
         // Add a way to save variable
         this.tCreated = LocalDateTime.parse(timeCreated);
         this.setTimeCreated(tCreated);
+        this.setElapsedTime();
     }
     
-    public void setElapsedTime(LocalDateTime elapsedTime) {
-        this.eTime = elapsedTime;
+    public void setElapsedTime() {
+        LocalDateTime now = LocalDateTime.now();
+        
+        LocalDateTime fromTemp = LocalDateTime.from(tCreated);
+        long years = fromTemp.until(now, ChronoUnit.YEARS);
+        fromTemp = fromTemp.plusYears(years);
+        
+        long months = fromTemp.until(now, ChronoUnit.MONTHS);
+        fromTemp = fromTemp.plusMonths(months);
+        
+        long days = fromTemp.until(now,ChronoUnit.DAYS);
+        fromTemp = fromTemp.plusDays(days);
+        
+        long hours = fromTemp.until(now,ChronoUnit.HOURS);
+        fromTemp = fromTemp.plusHours(hours);
+        
+        long minutes = fromTemp.until(now,ChronoUnit.MINUTES);
+        fromTemp = fromTemp.plusMinutes(minutes);
+        
+        long seconds = fromTemp.until(now,ChronoUnit.SECONDS);
+        fromTemp = fromTemp.plusSeconds(seconds);
+        
+        if (years > 0) {
+            elapsedTime = String.format("%s years, %s months", years, months);
+        } else if (months > 0) {
+            elapsedTime = String.format("%s months, %s days", months, days);
+        } else if (days > 0) {
+            elapsedTime = String.format("%s days, %s hours", days, hours);
+        } else if (hours > 0) {
+            elapsedTime = String.format("%s hours, %s minutes", hours, minutes);
+        } else {
+            elapsedTime = String.format("%s minutes, %s seconds", minutes, seconds);
+        }
     }
 }

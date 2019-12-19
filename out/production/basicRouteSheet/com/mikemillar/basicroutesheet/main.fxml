@@ -12,7 +12,7 @@
                 <!--            Main Menu Function Bar-->
                 <Menu text="File">
                     <items>
-                        <MenuItem text="Save" />
+                        <MenuItem text="Save" onAction="#handleSave"/>
                         <SeparatorMenuItem />
                         <MenuItem onAction="#handleExit" text="Exit" />
                     </items>

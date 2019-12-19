@@ -49,6 +49,10 @@ public class Controller {
         }
     }
     
+    public void handleSave() {
+        RepairOrderData.getInstance().saveLists();
+    }
+    
     public void handleExit() {
         Platform.exit();
     }

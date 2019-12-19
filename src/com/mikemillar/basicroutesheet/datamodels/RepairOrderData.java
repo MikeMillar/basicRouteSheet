@@ -732,7 +732,7 @@ public class RepairOrderData {
         createNode(eventWriter, TIME_CREATED, ro.getTCreatedString());
         createNode(eventWriter, TIME_CLOSED, ro.getTClosedString());
         createNode(eventWriter, TIME_DUE, ro.getTimeDue());
-        createNode(eventWriter, NOTES, ro.getNotes());
+        createNode(eventWriter, NOTES, ro.getNotes().getNote());
         createNode(eventWriter, IS_WAITING, ro.isWaiting());
         
         eventWriter.add(eventFactory.createEndElement("", "", REPAIR_ORDER));

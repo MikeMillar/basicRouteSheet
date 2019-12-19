@@ -5,10 +5,16 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/activeList.xml" beforeDir="false" afterPath="$PROJECT_DIR$/activeList.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/basicRouteSheet.iml" beforeDir="false" afterPath="$PROJECT_DIR$/basicRouteSheet.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/basicRouteSheet/com/mikemillar/basicroutesheet/datamodels/RepairOrder.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/basicRouteSheet/com/mikemillar/basicroutesheet/datamodels/RepairOrder.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/Refresher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/Refresher.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/main.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/main.fxml" afterDir="false" />
+>>>>>>> parent of 67ed150... Merge branch 'master' of https://github.com/MikeMillar/basicRouteSheet
 =======
       <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/Refresher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/mikemillar/basicroutesheet/datamodels/Refresher.java" afterDir="false" />

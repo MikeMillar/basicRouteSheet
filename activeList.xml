@@ -16,7 +16,7 @@
 	<time_created>2019-12-19T15:50:16.158616</time_created>
 	<time_closed></time_closed>
 	<repair_due>8:30 AM</repair_due>
-	<notes>test note</notes>
+	<notes>test 1</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
 <repair_order>
@@ -35,7 +35,7 @@
 	<time_created>2019-12-19T15:51:41.403351800</time_created>
 	<time_closed></time_closed>
 	<repair_due>6:00 PM</repair_due>
-	<notes>test note 2</notes>
+	<notes>test 2</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
 <repair_order>
@@ -54,7 +54,7 @@
 	<time_created>2019-12-19T07:37:54.261810300</time_created>
 	<time_closed></time_closed>
 	<repair_due>5:15 PM</repair_due>
-	<notes></notes>
+	<notes>test 3</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
 </active_list>

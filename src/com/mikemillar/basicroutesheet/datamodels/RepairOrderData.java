@@ -241,7 +241,7 @@ public class RepairOrderData {
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(NOTES)) {
                             event = eventReader.nextEvent();
-                            ro.setNotes(event.asCharacters().getData());
+                            ro.setNotes(event.toString());
                             continue;
                         }
                     }

@@ -91,6 +91,21 @@ public class RepairOrderData {
         return sopInactiveList;
     }
     
+    public void printLists() {
+        System.out.println("Active RO List:");
+        for (RepairOrder ro: roList) {
+            System.out.println(ro);
+        }
+        System.out.println("Inactive SOP List:");
+        for (RepairOrder ro: sopInactiveList) {
+            System.out.println(ro);
+        }
+        System.out.println("Closed RO List");
+        for (RepairOrder ro: inactiveList) {
+            System.out.println(ro);
+        }
+    }
+    
     public void updateList() {
         for (RepairOrder ro: roList) {
             ro.setElapsedTime();
@@ -229,13 +244,15 @@ public class RepairOrderData {
                         }
                     }
     
-//                    if (event.isStartElement()) {
-//                        if (event.asStartElement().getName().getLocalPart().equals(TIME_CLOSED)) {
-//                            event = eventReader.nextEvent();
-//                            ro.setTimeClosed(event.asCharacters().getData());
-//                            continue;
-//                        }
-//                    }
+                    if (event.isStartElement()) {
+                        if (event.asStartElement().getName().getLocalPart().equals(TIME_CLOSED)) {
+                            event = eventReader.nextEvent();
+                            if (!event.toString().isEmpty()) {
+                                ro.setTimeClosed(event.toString());
+                            }
+                            continue;
+                        }
+                    }
     
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TIME_DUE)) {
@@ -283,10 +300,10 @@ public class RepairOrderData {
             XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
             // read the XML document
             RepairOrder ro = null;
-        
+    
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
-            
+        
                 if (event.isStartElement()) {
                     StartElement startElement = event.asStartElement();
                     // If we have a repair order, we create a new repair order
@@ -294,7 +311,7 @@ public class RepairOrderData {
                         ro = new RepairOrder();
                         continue;
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(RO_NUMBER)) {
                             event = eventReader.nextEvent();
@@ -302,7 +319,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TAG_NUMBER)) {
                             event = eventReader.nextEvent();
@@ -310,7 +327,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(YEAR)) {
                             event = eventReader.nextEvent();
@@ -318,7 +335,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(MAKE)) {
                             event = eventReader.nextEvent();
@@ -326,7 +343,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(MODEL)) {
                             event = eventReader.nextEvent();
@@ -334,7 +351,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(MILEAGE)) {
                             event = eventReader.nextEvent();
@@ -342,7 +359,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(CUSTOMER_NAME)) {
                             event = eventReader.nextEvent();
@@ -350,7 +367,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(PHONE_NUMBER)) {
                             event = eventReader.nextEvent();
@@ -358,7 +375,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(STATUS)) {
                             event = eventReader.nextEvent();
@@ -366,7 +383,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(JOBS)) {
                             event = eventReader.nextEvent();
@@ -374,7 +391,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(ADVISER)) {
                             event = eventReader.nextEvent();
@@ -382,7 +399,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TECH)) {
                             event = eventReader.nextEvent();
@@ -390,7 +407,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TIME_CREATED)) {
                             event = eventReader.nextEvent();
@@ -398,15 +415,17 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TIME_CLOSED)) {
                             event = eventReader.nextEvent();
-                            ro.setTimeClosed(event.asCharacters().getData());
+                            if (!event.toString().isEmpty()) {
+                                ro.setTimeClosed(event.toString());
+                            }
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TIME_DUE)) {
                             event = eventReader.nextEvent();
@@ -414,15 +433,15 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(NOTES)) {
                             event = eventReader.nextEvent();
-                            ro.setNotes(event.asCharacters().getData());
+                            ro.setNotes(event.toString());
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(IS_WAITING)) {
                             event = eventReader.nextEvent();
@@ -430,13 +449,12 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
-                    // If we reach end of a repair order element, we add it to the list
-                    if (event.isEndElement()) {
-                        EndElement endElement = event.asEndElement();
-                        if (endElement.getName().getLocalPart().equals(REPAIR_ORDER)) {
-                            roList.add(ro);
-                        }
+                }
+                // If we reach end of a repair order element, we add it to the list
+                if (event.isEndElement()) {
+                    EndElement endElement = event.asEndElement();
+                    if (endElement.getName().getLocalPart().equals(REPAIR_ORDER)) {
+                        inactiveList.add(ro);
                     }
                 }
             }
@@ -454,10 +472,10 @@ public class RepairOrderData {
             XMLEventReader eventReader = inputFactory.createXMLEventReader(in);
             // read the XML document
             RepairOrder ro = null;
-        
+    
             while (eventReader.hasNext()) {
                 XMLEvent event = eventReader.nextEvent();
-            
+        
                 if (event.isStartElement()) {
                     StartElement startElement = event.asStartElement();
                     // If we have a repair order, we create a new repair order
@@ -465,7 +483,7 @@ public class RepairOrderData {
                         ro = new RepairOrder();
                         continue;
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(RO_NUMBER)) {
                             event = eventReader.nextEvent();
@@ -473,7 +491,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TAG_NUMBER)) {
                             event = eventReader.nextEvent();
@@ -481,7 +499,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(YEAR)) {
                             event = eventReader.nextEvent();
@@ -489,7 +507,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(MAKE)) {
                             event = eventReader.nextEvent();
@@ -497,7 +515,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(MODEL)) {
                             event = eventReader.nextEvent();
@@ -505,7 +523,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(MILEAGE)) {
                             event = eventReader.nextEvent();
@@ -513,7 +531,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(CUSTOMER_NAME)) {
                             event = eventReader.nextEvent();
@@ -521,7 +539,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(PHONE_NUMBER)) {
                             event = eventReader.nextEvent();
@@ -529,7 +547,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(STATUS)) {
                             event = eventReader.nextEvent();
@@ -537,7 +555,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(JOBS)) {
                             event = eventReader.nextEvent();
@@ -545,7 +563,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(ADVISER)) {
                             event = eventReader.nextEvent();
@@ -553,7 +571,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TECH)) {
                             event = eventReader.nextEvent();
@@ -561,7 +579,7 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TIME_CREATED)) {
                             event = eventReader.nextEvent();
@@ -569,15 +587,17 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TIME_CLOSED)) {
                             event = eventReader.nextEvent();
-                            ro.setTimeClosed(event.asCharacters().getData());
+                            if (!event.toString().isEmpty()) {
+                                ro.setTimeClosed(event.toString());
+                            }
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(TIME_DUE)) {
                             event = eventReader.nextEvent();
@@ -585,15 +605,15 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(NOTES)) {
                             event = eventReader.nextEvent();
-                            ro.setNotes(event.asCharacters().getData());
+                            ro.setNotes(event.toString());
                             continue;
                         }
                     }
-                
+            
                     if (event.isStartElement()) {
                         if (event.asStartElement().getName().getLocalPart().equals(IS_WAITING)) {
                             event = eventReader.nextEvent();
@@ -601,13 +621,12 @@ public class RepairOrderData {
                             continue;
                         }
                     }
-                
-                    // If we reach end of a repair order element, we add it to the list
-                    if (event.isEndElement()) {
-                        EndElement endElement = event.asEndElement();
-                        if (endElement.getName().getLocalPart().equals(REPAIR_ORDER)) {
-                            roList.add(ro);
-                        }
+                }
+                // If we reach end of a repair order element, we add it to the list
+                if (event.isEndElement()) {
+                    EndElement endElement = event.asEndElement();
+                    if (endElement.getName().getLocalPart().equals(REPAIR_ORDER)) {
+                        sopInactiveList.add(ro);
                     }
                 }
             }

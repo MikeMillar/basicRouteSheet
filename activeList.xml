@@ -1,43 +1,60 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <active_list>
 <repair_order>
-	<ro_number>546387</ro_number>
-	<tag_number>5467</tag_number>
-	<year>2010</year>
-	<make>Honda</make>
-	<model>Pilot</model>
-	<mileage>104352</mileage>
-	<customer_name>Greg Lucero</customer_name>
-	<phone_number>123-456-7890</phone_number>
+	<ro_number>123456</ro_number>
+	<tag_number>1234</tag_number>
+	<year>1234</year>
+	<make>Ford</make>
+	<model>Focus</model>
+	<mileage>1</mileage>
+	<customer_name>Mike</customer_name>
+	<phone_number>111-111-1111</phone_number>
 	<status>No Status</status>
 	<jobs>LOF</jobs>
-	<adviser>Mike Millar</adviser>
-	<tech>Andre Perry</tech>
-	<time_created>2019-12-19T07:37:54.261810300</time_created>
-	<time_closed></time_closed>
-	<repair_due>5:15 PM</repair_due>
-	<notes>test 3
-
-test666</notes>
+	<adviser>Mike</adviser>
+	<tech>Mike</tech>
+	<time_created>2019-12-19T21:06:26.903193200</time_created>
+	<time_closed>2024-12-19T21:06:26.909193500</time_closed>
+	<repair_due>8:15 AM</repair_due>
+	<notes>test</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
 <repair_order>
-	<ro_number>245698</ro_number>
-	<tag_number>2563</tag_number>
-	<year>2019</year>
-	<make>mazda</make>
-	<model>6</model>
-	<mileage>98000</mileage>
-	<customer_name>Cassy</customer_name>
-	<phone_number>505-417-3390</phone_number>
+	<ro_number>345678</ro_number>
+	<tag_number>3456</tag_number>
+	<year>3456</year>
+	<make>Chevy</make>
+	<model>Silverado</model>
+	<mileage>3</mileage>
+	<customer_name>Mike</customer_name>
+	<phone_number>333-333-3333</phone_number>
 	<status>No Status</status>
-	<jobs>oil change</jobs>
-	<adviser>IDK</adviser>
-	<tech>IDK</tech>
-	<time_created>2019-12-18T22:07:14.003067500</time_created>
-	<time_closed></time_closed>
+	<jobs>LOF</jobs>
+	<adviser>Mike</adviser>
+	<tech>Mike</tech>
+	<time_created>2019-12-19T21:07:39.080321500</time_created>
+	<time_closed>2024-12-19T21:07:39.080321500</time_closed>
+	<repair_due>8:30 AM</repair_due>
+	<notes>test</notes>
+	<is_waiting>Yes</is_waiting>
+</repair_order>
+<repair_order>
+	<ro_number>234567</ro_number>
+	<tag_number>2345</tag_number>
+	<year>2345</year>
+	<make>Toyota</make>
+	<model>Tacoma</model>
+	<mileage>2</mileage>
+	<customer_name>Mike</customer_name>
+	<phone_number>222-222-2222</phone_number>
+	<status>No Status</status>
+	<jobs>LOF</jobs>
+	<adviser>Mike</adviser>
+	<tech>Mike</tech>
+	<time_created>2019-12-19T21:07:06.169439100</time_created>
+	<time_closed>2024-12-19T21:07:06.169439100</time_closed>
 	<repair_due>8:45 AM</repair_due>
-	<notes>notes</notes>
+	<notes>test</notes>
 	<is_waiting>Yes</is_waiting>
 </repair_order>
 </active_list>

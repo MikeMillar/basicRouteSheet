@@ -2,6 +2,7 @@ package com.mikemillar.basicroutesheet.datamodels;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.time.temporal.ChronoUnit;
 
 public class RepairOrder {
@@ -56,6 +57,7 @@ public class RepairOrder {
         this.tech = tech;
         this.tCreated = LocalDateTime.now();
         this.timeCreated = this.tCreated.format(formatter);
+        this.tClosed = LocalDateTime.now().plusYears(5);
         this.timeDue = timeDue;
         this.notes = new Note(this, notes);
         setWaiting(waiter);
@@ -78,8 +80,8 @@ public class RepairOrder {
     public boolean openRepairOrder() {
         if (!isLocked) {
             this.isClosed = false;
-            this.tClosed = null;
-            this.timeClosed = "";
+            this.tClosed = tCreated.plusYears(5);
+            this.timeClosed = tClosed.format(formatter);
             this.elapsedClosed = "";
             return true;
         }
@@ -304,10 +306,7 @@ public class RepairOrder {
     }
     
     public String getTClosedString() {
-        if (this.tClosed != null) {
-            return tClosed.toString();
-        }
-        return null;
+        return tClosed.toString();
     }
     
     public void setTClosed(LocalDateTime timeClosed) {
@@ -315,7 +314,14 @@ public class RepairOrder {
     }
     
     public void setTimeClosed(String timeClosed) {
-        this.timeClosed = timeClosed;
+        try {
+            this.tClosed = LocalDateTime.parse(timeClosed);
+            this.setTClosed(tClosed);
+            this.setElapsedClosed();
+        } catch (DateTimeParseException e) {
+            // nothing
+            e.printStackTrace();
+        }
     }
     
     public String getTimeDue() {

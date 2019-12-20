@@ -105,8 +105,13 @@ public class Controller {
     public void setInactiveSOP() {
         RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
         ro.closeRepairOrder();
-        RepairOrderData.getInstance().addToList(ro,RepairOrderData.getSopInactiveList());
-        RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getRoList());
+        if (activeListButton.isSelected()) {
+            RepairOrderData.getInstance().addToList(ro,RepairOrderData.getSopInactiveList());
+            RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getRoList());
+        } else if (closedListButton.isSelected()) {
+            RepairOrderData.getInstance().addToList(ro,RepairOrderData.getSopInactiveList());
+            RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getInactiveList());
+        }
     }
     
     public void voidRepairOrder() {
@@ -117,14 +122,20 @@ public class Controller {
         Optional<ButtonType> result = alert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
             RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getRoList());
+            refreshList();
         }
     }
     
     public void closeRepairOrder() {
         RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
         ro.closeRepairOrder();
-        RepairOrderData.getInstance().addToList(ro,RepairOrderData.getInactiveList());
-        RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getRoList());
+        if (activeListButton.isSelected()) {
+            RepairOrderData.getInstance().addToList(ro, RepairOrderData.getInactiveList());
+            RepairOrderData.getInstance().removeFromList(ro, RepairOrderData.getRoList());
+        } else if (orderListButton.isSelected()) {
+            RepairOrderData.getInstance().addToList(ro, RepairOrderData.getInactiveList());
+            RepairOrderData.getInstance().removeFromList(ro, RepairOrderData.getSopInactiveList());
+        }
     }
     
     public void toggleList(ActionEvent e) {

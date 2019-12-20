@@ -40,4 +40,8 @@ public class Note {
     public String getTimeCreatedString() {
         return timeCreatedString;
     }
+
+    public void addNote(String note) {
+        this.note = this.note + "\n\n" + note;
+    }
 }

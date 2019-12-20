@@ -30,6 +30,11 @@
                         <MenuItem text="Close RO no SOP" />
                     </items>
                 </Menu>
+                <Menu text="Notes">
+                    <items>
+                        <MenuItem text="Show Notes" onAction="#showNotesDialog"/>
+                    </items>
+                </Menu>
             </MenuBar>
         </VBox>
     </top>

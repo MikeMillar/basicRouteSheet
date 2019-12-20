@@ -1,8 +1,5 @@
 package com.mikemillar.basicroutesheet.datamodels;
 
-import javafx.fxml.FXML;
-import javafx.scene.control.TableView;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
@@ -31,10 +28,13 @@ public class RepairOrder {
     private String elapsedTime;
     private LocalDateTime tClosed;
     private String timeClosed;
+    private String elapsedClosed;
     private String timeDue;
     private Note notes;
 //    private String notes;
     private boolean isWaiting;
+    private boolean isClosed;
+    private boolean isLocked;
     
     public RepairOrder() {
     
@@ -61,6 +61,8 @@ public class RepairOrder {
         setWaiting(waiter);
         this.status = statusOptions.NO_STATUS;
         setElapsedTime();
+        this.isClosed = false;
+        this.isLocked = false;
     }
     
     public int parseInt(String s) {
@@ -71,6 +73,39 @@ public class RepairOrder {
             e.printStackTrace();
             return -1;
         }
+    }
+    
+    public boolean openRepairOrder() {
+        if (!isLocked) {
+            this.isClosed = false;
+            this.tClosed = null;
+            this.timeClosed = "";
+            this.elapsedClosed = "";
+            return true;
+        }
+        return false;
+    }
+    
+    public void closeRepairOrder() {
+        this.isClosed = true;
+        this.tClosed = LocalDateTime.now();
+        this.timeClosed = tClosed.format(formatter);
+    }
+    
+    public boolean isClosed() {
+        return isClosed;
+    }
+    
+    public void setClosed(boolean closed) {
+        isClosed = closed;
+    }
+    
+    public boolean isLocked() {
+        return isLocked;
+    }
+    
+    public void setLocked(boolean locked) {
+        isLocked = locked;
     }
     
     public int getRepairOrderNumber() {
@@ -382,6 +417,82 @@ public class RepairOrder {
             elapsedTime = String.format("%s minutes, %s seconds", minutes, seconds);
         }
     }
+    
+    public void setLocked() {
+        if (this.tClosed != null) {
+            LocalDateTime now = LocalDateTime.now();
+    
+            LocalDateTime fromTemp = LocalDateTime.from(tClosed);
+            long years = fromTemp.until(now, ChronoUnit.YEARS);
+            fromTemp = fromTemp.plusYears(years);
+    
+            long months = fromTemp.until(now, ChronoUnit.MONTHS);
+            fromTemp = fromTemp.plusMonths(months);
+    
+            long days = fromTemp.until(now,ChronoUnit.DAYS);
+            fromTemp = fromTemp.plusDays(days);
+    
+            if (days > 0) {
+                this.isLocked = true;
+            }
+        }
+    }
+    
+    public boolean removeFromSOP() {
+        LocalDateTime now = LocalDateTime.now();
+        
+        if (this.tClosed != null) {
+            LocalDateTime fromTemp = LocalDateTime.from(tClosed);
+            long years = fromTemp.until(now, ChronoUnit.YEARS);
+            fromTemp = fromTemp.plusYears(years);
+    
+            long months = fromTemp.until(now, ChronoUnit.MONTHS);
+            fromTemp = fromTemp.plusMonths(months);
+            
+            if (months > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public void setElapsedClosed() {
+        if (this.tClosed != null) {
+            LocalDateTime now = LocalDateTime.now();
+            
+            LocalDateTime fromTemp = LocalDateTime.from(tClosed);
+            long years = fromTemp.until(now, ChronoUnit.YEARS);
+            fromTemp = fromTemp.plusYears(years);
+    
+            long months = fromTemp.until(now, ChronoUnit.MONTHS);
+            fromTemp = fromTemp.plusMonths(months);
+    
+            long days = fromTemp.until(now, ChronoUnit.DAYS);
+            fromTemp = fromTemp.plusDays(days);
+    
+            long hours = fromTemp.until(now, ChronoUnit.HOURS);
+            fromTemp = fromTemp.plusHours(hours);
+    
+            long minutes = fromTemp.until(now, ChronoUnit.MINUTES);
+            fromTemp = fromTemp.plusMinutes(minutes);
+    
+            long seconds = fromTemp.until(now, ChronoUnit.SECONDS);
+            fromTemp = fromTemp.plusSeconds(seconds);
+    
+            if (years > 0) {
+                elapsedClosed = String.format("%s years, %s months", years, months);
+            } else if (months > 0) {
+                elapsedClosed = String.format("%s months, %s days", months, days);
+            } else if (days > 0) {
+                elapsedClosed = String.format("%s days, %s hours", days, hours);
+            } else if (hours > 0) {
+                elapsedClosed = String.format("%s hours, %s minutes", hours, minutes);
+            } else {
+                elapsedClosed = String.format("%s minutes, %s seconds", minutes, seconds);
+            }
+        }
+    }
+    
 
     public void addNote(String note) {
         this.notes.addNote(note);

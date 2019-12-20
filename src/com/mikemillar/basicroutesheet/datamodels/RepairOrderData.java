@@ -94,6 +94,13 @@ public class RepairOrderData {
     public void updateList() {
         for (RepairOrder ro: roList) {
             ro.setElapsedTime();
+            ro.setLocked();
+        }
+        for (RepairOrder ro: sopInactiveList) {
+            if (ro.removeFromSOP()) {
+                addToList(ro,inactiveList);
+                removeFromList(ro,sopInactiveList);
+            }
         }
     }
     

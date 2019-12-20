@@ -5,14 +5,12 @@ import com.mikemillar.basicroutesheet.datamodels.RepairOrder;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrderData;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
-import java.util.Arrays;
 import java.util.Optional;
 
 public class Controller {
@@ -21,6 +19,9 @@ public class Controller {
     
     @FXML private BorderPane mainBorderPane;
     @FXML private TableView<RepairOrder> activeTable;
+    @FXML private RadioButton activeListButton;
+    @FXML private RadioButton orderListButton;
+    @FXML private RadioButton closedListButton;
 
     public void initialize() {
         activeTable.getSelectionModel().setSelectionMode(SelectionMode.SINGLE);
@@ -83,6 +84,57 @@ public class Controller {
 //        }
         if (result.isPresent() && result.get() == ButtonType.OK) {
             controller.addNote(ro);
+        }
+    }
+    
+    public void setRepairOrderActive() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        if (ro.openRepairOrder()) {
+            if (orderListButton.isSelected()) {
+                RepairOrderData.getInstance().addToList(ro, RepairOrderData.getRoList());
+                RepairOrderData.getInstance().removeFromList(ro, RepairOrderData.getSopInactiveList());
+            } else if (closedListButton.isSelected()) {
+                RepairOrderData.getInstance().addToList(ro, RepairOrderData.getRoList());
+                RepairOrderData.getInstance().removeFromList(ro, RepairOrderData.getInactiveList());
+            }
+        } else {
+            System.out.println("Unable to Open Repair Order. Repair Order Locked.");
+        }
+    }
+    
+    public void setInactiveSOP() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        ro.closeRepairOrder();
+        RepairOrderData.getInstance().addToList(ro,RepairOrderData.getSopInactiveList());
+        RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getRoList());
+    }
+    
+    public void voidRepairOrder() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("Void Current Repair Order?");
+        alert.setHeaderText("Are you sure you want to void Repair Order" + ro.getRepairOrderNumber() + "?");
+        Optional<ButtonType> result = alert.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getRoList());
+        }
+    }
+    
+    public void closeRepairOrder() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        ro.closeRepairOrder();
+        RepairOrderData.getInstance().addToList(ro,RepairOrderData.getInactiveList());
+        RepairOrderData.getInstance().removeFromList(ro,RepairOrderData.getRoList());
+    }
+    
+    public void toggleList(ActionEvent e) {
+        String s = ((RadioButton)e.getSource()).getText();
+        if (s.equals("Active RO List")) {
+            activeTable.setItems(RepairOrderData.getRoList());
+        } else if (s.equals("Inactive SOP List")) {
+            activeTable.setItems(RepairOrderData.getSopInactiveList());
+        } else if (s.equals("Closed RO List")) {
+            activeTable.setItems(RepairOrderData.getInactiveList());
         }
     }
     

@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <active_list>
 <repair_order>
-	<ro_number>123456</ro_number>
-	<tag_number>1234</tag_number>
-	<year>2000</year>
-	<make>Toyota</make>
-	<model>Tacoma</model>
-	<mileage>128932</mileage>
-	<customer_name>Bob Lopez</customer_name>
-	<phone_number>505-555-5555</phone_number>
-	<status>No Status</status>
-	<jobs>LOF</jobs>
-	<adviser>Mike Millar</adviser>
-	<tech>Andre Perry</tech>
-	<time_created>2019-12-19T15:50:16.158616</time_created>
-	<time_closed></time_closed>
-	<repair_due>8:30 AM</repair_due>
-	<notes>test 1
-
-test444</notes>
-	<is_waiting>No</is_waiting>
-</repair_order>
-<repair_order>
 	<ro_number>654321</ro_number>
 	<tag_number>4321</tag_number>
 	<year>2020</year>
@@ -79,7 +58,28 @@ test666</notes>
 	<time_created>2019-12-18T22:07:14.003067500</time_created>
 	<time_closed></time_closed>
 	<repair_due>8:45 AM</repair_due>
-	<notes></notes>
+	<notes>notes</notes>
 	<is_waiting>Yes</is_waiting>
+</repair_order>
+<repair_order>
+	<ro_number>123456</ro_number>
+	<tag_number>1234</tag_number>
+	<year>2000</year>
+	<make>Toyota</make>
+	<model>Tacoma</model>
+	<mileage>128932</mileage>
+	<customer_name>Bob Lopez</customer_name>
+	<phone_number>505-555-5555</phone_number>
+	<status>Vehicle Complete</status>
+	<jobs>LOF</jobs>
+	<adviser>Mike Millar</adviser>
+	<tech>Andre Perry</tech>
+	<time_created>2019-12-19T15:50:16.158616</time_created>
+	<time_closed></time_closed>
+	<repair_due>8:30 AM</repair_due>
+	<notes>test 1
+
+test444</notes>
+	<is_waiting>No</is_waiting>
 </repair_order>
 </active_list>

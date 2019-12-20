@@ -322,12 +322,9 @@ public class RepairOrder {
     }
     
     public void setWaiting(String waiting) {
-        System.out.println(waiting);
         if (waiting.equals("Yes")) {
-            System.out.println("Setting waiter to true");
             isWaiting = true;
         } else if (waiting.equals("No")) {
-            System.out.println("Setting waiter to false");
             isWaiting = false;
         }
     }

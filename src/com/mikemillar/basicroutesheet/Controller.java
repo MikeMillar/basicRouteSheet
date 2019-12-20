@@ -4,15 +4,15 @@ import com.mikemillar.basicroutesheet.datamodels.Refresher;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrder;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrderData;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.SelectionMode;
-import javafx.scene.control.TableView;
+import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
 
 import java.io.IOException;
+import java.util.Arrays;
 import java.util.Optional;
 
 public class Controller {
@@ -84,6 +84,13 @@ public class Controller {
         if (result.isPresent() && result.get() == ButtonType.OK) {
             controller.addNote(ro);
         }
+    }
+    
+    public void setStatus(ActionEvent e) {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        String srcText = ((MenuItem)e.getSource()).getText();
+        ro.setStatus(srcText);
+        refreshList();
     }
 
     public void refreshList() {

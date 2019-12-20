@@ -35,6 +35,39 @@
                         <MenuItem text="Show Notes" onAction="#showNotesDialog"/>
                     </items>
                 </Menu>
+                <Menu text="Status">
+                    <items>
+                        <Menu text="Set Status">
+                            <items>
+                                <MenuItem text="Attention Tech" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Attention Adviser" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Attention Parts" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Tech Working on Vehicle" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Parts Working" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Authorization Hold" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Parts Hold" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Declined Recommendations" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Vehicle Complete" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Vehicle ready for delivery" onAction="#setStatus"/>
+                                <SeparatorMenuItem/>
+                                <MenuItem text="Vehicle Picked Up" onAction="#setStatus"/>
+                            </items>
+                        </Menu>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Clear Status"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="See Status History"/>
+                    </items>
+                </Menu>
             </MenuBar>
         </VBox>
     </top>

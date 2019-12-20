@@ -1,5 +1,6 @@
 package com.mikemillar.basicroutesheet;
 
+import com.mikemillar.basicroutesheet.datamodels.Note;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrder;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrderData;
 import javafx.fxml.FXML;
@@ -24,8 +25,10 @@ public class DialogController {
     @FXML private TextArea notesField;
     @FXML private ComboBox dueTime;
     @FXML private ComboBox waiterField;
-    
-    
+
+    @FXML private TextArea displayBox;
+    @FXML private TextArea inputField;
+
     public RepairOrder addRO() {
         String roNum = roNumField.getText().trim();
         String tag = tagNumField.getText().trim();
@@ -44,5 +47,16 @@ public class DialogController {
         RepairOrder ro = new RepairOrder(roNum,tag,year,make, model,mile, customer, phone, jobs, adviser, tech, due, notes, waiter);
         RepairOrderData.getInstance().addToList(ro,RepairOrderData.roList);
         return ro;
+    }
+
+    public void loadNotes(RepairOrder ro) {
+        displayBox.setText(ro.getNotes());
+    }
+
+    public void addNote(RepairOrder ro) {
+        String noteToAdd = inputField.getText().trim();
+        if (!noteToAdd.isEmpty()) {
+            ro.addNote(noteToAdd);
+        }
     }
 }

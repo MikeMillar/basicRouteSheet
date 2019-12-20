@@ -385,4 +385,8 @@ public class RepairOrder {
             elapsedTime = String.format("%s minutes, %s seconds", minutes, seconds);
         }
     }
+
+    public void addNote(String note) {
+        this.notes.addNote(note);
+    }
 }

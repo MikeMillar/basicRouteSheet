@@ -38,4 +38,23 @@
 	<notes>t-belt</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
+<repair_order>
+	<ro_number>245698</ro_number>
+	<tag_number>2563</tag_number>
+	<year>2019</year>
+	<make>mazda</make>
+	<model>6</model>
+	<mileage>98000</mileage>
+	<customer_name>Cassy</customer_name>
+	<phone_number>505-417-3390</phone_number>
+	<status>No Status</status>
+	<jobs>oil change</jobs>
+	<adviser>IDK</adviser>
+	<tech>IDK</tech>
+	<time_created>2019-12-18T22:07:14.003067500</time_created>
+	<time_closed></time_closed>
+	<repair_due>8:45 AM</repair_due>
+	<notes></notes>
+	<is_waiting>Yes</is_waiting>
+</repair_order>
 </active_list>

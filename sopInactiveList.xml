@@ -1,3 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <inactive_sop_list>
+<repair_order>
+	<ro_number>123456</ro_number>
+	<tag_number>1234</tag_number>
+	<year>1234</year>
+	<make>Ford</make>
+	<model>Focus</model>
+	<mileage>1</mileage>
+	<customer_name>Mike</customer_name>
+	<phone_number>111-111-1111</phone_number>
+	<status>Vehicle Picked Up</status>
+	<jobs>LOF</jobs>
+	<adviser>Mike</adviser>
+	<tech>Mike</tech>
+	<time_created>2019-12-19T21:06:26.903193200</time_created>
+	<time_closed>2019-12-22T20:39:37.234766700</time_closed>
+	<repair_due>8:15 AM</repair_due>
+	<notes>test
+
+ordered rack and pinion</notes>
+	<is_waiting>No</is_waiting>
+</repair_order>
 </inactive_sop_list>

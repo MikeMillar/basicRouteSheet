@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <active_list>
 <repair_order>
-	<ro_number>123456</ro_number>
-	<tag_number>1234</tag_number>
-	<year>1234</year>
-	<make>Ford</make>
-	<model>Focus</model>
-	<mileage>1</mileage>
-	<customer_name>Mike</customer_name>
-	<phone_number>111-111-1111</phone_number>
-	<status>No Status</status>
-	<jobs>LOF</jobs>
-	<adviser>Mike</adviser>
-	<tech>Mike</tech>
-	<time_created>2019-12-19T21:06:26.903193200</time_created>
-	<time_closed>2024-12-19T21:06:26.909193500</time_closed>
-	<repair_due>8:15 AM</repair_due>
-	<notes>test</notes>
-	<is_waiting>No</is_waiting>
-</repair_order>
-<repair_order>
 	<ro_number>987654</ro_number>
 	<tag_number>9876</tag_number>
 	<year>2020</year>
@@ -28,7 +9,7 @@
 	<mileage>10</mileage>
 	<customer_name>Garcia Hond</customer_name>
 	<phone_number>505-260-5000</phone_number>
-	<status>No Status</status>
+	<status>Vehicle Picked Up</status>
 	<jobs>Accessories</jobs>
 	<adviser>Mike</adviser>
 	<tech>Dominic</tech>
@@ -36,6 +17,27 @@
 	<time_closed>2024-12-19T21:37:58.971413300</time_closed>
 	<repair_due>8:30 AM</repair_due>
 	<notes>adventure package</notes>
+	<is_waiting>No</is_waiting>
+</repair_order>
+<repair_order>
+	<ro_number>875639</ro_number>
+	<tag_number>5967</tag_number>
+	<year>2013</year>
+	<make>Mazda</make>
+	<model>6</model>
+	<mileage>98000</mileage>
+	<customer_name>Cassy Gutierrez "Sassy"</customer_name>
+	<phone_number>505-417-3390</phone_number>
+	<status>Declined Recommendations</status>
+	<jobs>100k Service</jobs>
+	<adviser>Mike Millar</adviser>
+	<tech>Andre Perry</tech>
+	<time_created>2019-12-22T20:36:12.151036600</time_created>
+	<time_closed>2024-12-22T20:36:12.151036600</time_closed>
+	<repair_due>4:15 PM</repair_due>
+	<notes>This girl is way too sassy
+
+JK, shes cute</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
 </active_list>

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.control.cell.*?>
 <?import javafx.scene.layout.*?>
@@ -12,9 +13,9 @@
                 <!--            Main Menu Function Bar-->
                 <Menu text="File">
                     <items>
-                        <MenuItem text="Refresh" onAction="#refreshList"/>
+                        <MenuItem onAction="#refreshList" text="Refresh" />
                         <SeparatorMenuItem />
-                        <MenuItem text="Save" onAction="#handleSave"/>
+                        <MenuItem onAction="#handleSave" text="Save" />
                         <SeparatorMenuItem />
                         <MenuItem onAction="#handleExit" text="Exit" />
                     </items>
@@ -25,14 +26,51 @@
                         <SeparatorMenuItem />
                         <MenuItem text="Open RO Details" />
                         <SeparatorMenuItem />
-                        <MenuItem text="Close RO with SOP" />
+                        <MenuItem text="Set RO to Active" onAction="#setRepairOrderActive"/>
                         <SeparatorMenuItem />
-                        <MenuItem text="Close RO no SOP" />
+                        <MenuItem text="Close RO with SOP" onAction="#setInactiveSOP"/>
+                        <SeparatorMenuItem />
+                        <MenuItem text="Void RO" onAction="#voidRepairOrder"/>
+                        <SeparatorMenuItem />
+                        <MenuItem text="Close RO " onAction="#closeRepairOrder"/>
                     </items>
                 </Menu>
                 <Menu text="Notes">
                     <items>
-                        <MenuItem text="Show Notes" onAction="#showNotesDialog"/>
+                        <MenuItem onAction="#showNotesDialog" text="Show Notes" />
+                    </items>
+                </Menu>
+                <Menu text="Status">
+                    <items>
+                        <Menu text="Set Status">
+                            <items>
+                                <MenuItem onAction="#setStatus" text="Attention Tech" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Attention Adviser" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Attention Parts" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Tech Working on Vehicle" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Parts Working" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Authorization Hold" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Parts Hold" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Declined Recommendations" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Vehicle Complete" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Vehicle ready for delivery" />
+                                <SeparatorMenuItem />
+                                <MenuItem onAction="#setStatus" text="Vehicle Picked Up" />
+                            </items>
+                        </Menu>
+                        <SeparatorMenuItem />
+                        <MenuItem text="Clear Status" />
+                        <SeparatorMenuItem />
+                        <MenuItem text="See Status History" />
                     </items>
                 </Menu>
             </MenuBar>
@@ -41,6 +79,27 @@
     <center>
         <!--    Used for main RO display-->
         <VBox>
+            <HBox>
+                <fx:define>
+                    <ToggleGroup fx:id="listToggleGroup" />
+                </fx:define>
+                <RadioButton text="Active RO List" toggleGroup="$listToggleGroup" onAction="#toggleList"
+                selected="true" fx:id="activeListButton">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin>
+                </RadioButton>
+                <RadioButton text="Inactive SOP List" toggleGroup="$listToggleGroup" onAction="#toggleList"
+                fx:id="orderListButton">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></RadioButton>
+                <RadioButton text="Closed RO List" toggleGroup="$listToggleGroup" onAction="#toggleList"
+                fx:id="closedListButton">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+               </HBox.margin></RadioButton>
+            </HBox>
             <TableView fx:id="activeTable" VBox.vgrow="ALWAYS">
                 <!--            Main Display for ROs-->
                 <columnResizePolicy>

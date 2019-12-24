@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <active_list>
 <repair_order>
-	<ro_number>987654</ro_number>
-	<tag_number>9876</tag_number>
-	<year>2020</year>
-	<make>Honda</make>
-	<model>Pilot</model>
-	<mileage>10</mileage>
-	<customer_name>Garcia Hond</customer_name>
-	<phone_number>505-260-5000</phone_number>
-	<status>Vehicle Picked Up</status>
-	<jobs>Accessories</jobs>
-	<adviser>Mike</adviser>
-	<tech>Dominic</tech>
-	<time_created>2019-12-19T21:37:58.970413300</time_created>
-	<time_closed>2024-12-19T21:37:58.971413300</time_closed>
-	<repair_due>8:30 AM</repair_due>
-	<notes>adventure package</notes>
-	<is_waiting>No</is_waiting>
-</repair_order>
-<repair_order>
 	<ro_number>875639</ro_number>
 	<tag_number>5967</tag_number>
 	<year>2013</year>
@@ -39,5 +20,26 @@
 
 JK, shes cute</notes>
 	<is_waiting>No</is_waiting>
+</repair_order>
+<repair_order>
+	<ro_number>284021</ro_number>
+	<tag_number>2081</tag_number>
+	<year>2018</year>
+	<make>Honda</make>
+	<model>Accord</model>
+	<mileage>28900</mileage>
+	<customer_name>Dominic Vigil</customer_name>
+	<phone_number>505-453-1406</phone_number>
+	<status>No Status</status>
+	<jobs>MIL, LIMP, NOISE</jobs>
+	<adviser>Mike Millar</adviser>
+	<tech>Dominic Coombs</tech>
+	<time_created>2019-12-24T11:56:28.282190700</time_created>
+	<time_closed>2024-12-24T11:56:28.282190700</time_closed>
+	<repair_due>2:30 PM</repair_due>
+	<notes>test
+
+11:56 AM 12-24-2019</notes>
+	<is_waiting>Yes</is_waiting>
 </repair_order>
 </active_list>

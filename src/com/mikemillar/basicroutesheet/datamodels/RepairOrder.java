@@ -7,7 +7,7 @@ import java.time.temporal.ChronoUnit;
 
 public class RepairOrder {
     
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a MM/dd/yyyy");
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("hh:mm a MM-dd-yyyy");
     
     private enum statusOptions {NO_STATUS, ATTN_TECH, ATTN_ADV, ATTN_PARTS, TECH_WORKING, VEH_COMPLETE,
         VEH_READY_FOR_DEL, VEH_PICK_UP, PARTS_WORKING, PARTS_HOLD, AUTH_HOLD, REC_DECLINED}

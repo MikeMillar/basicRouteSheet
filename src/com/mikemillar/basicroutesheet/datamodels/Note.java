@@ -1,8 +1,5 @@
 package com.mikemillar.basicroutesheet.datamodels;
 
-import javafx.scene.text.Font;
-import javafx.scene.text.Text;
-
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -16,9 +13,11 @@ public class Note {
     public Note(RepairOrder ro, String note) {
         this.ro = ro;
         this.note = note;
+        System.out.println("Constructor note to set: " + note);
     }
     
     public void setNote(String note) {
+        System.out.println("Note to load: " + note);
         this.note = note;
     }
     
@@ -31,10 +30,7 @@ public class Note {
     }
 
     public void addNote(String note) {
-        Text dateTime = new Text();
-        dateTime.setText(LocalDateTime.now().format(formatter));
-        dateTime.setFont(Font.font("Times New Roman", 20));
-        this.note = this.note + "\n\n" + LocalDateTime.now().format(formatter);
-        this.note = this.note + "\n\n" + note;
+        this.note = this.note + "\n" + LocalDateTime.now().format(formatter);
+        this.note = this.note + "\n" + note;
     }
 }

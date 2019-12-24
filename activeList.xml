@@ -16,9 +16,8 @@
 	<time_created>2019-12-22T20:36:12.151036600</time_created>
 	<time_closed>2024-12-22T20:36:12.151036600</time_closed>
 	<repair_due>4:15 PM</repair_due>
-	<notes>This girl is way too sassy
-
-JK, shes cute</notes>
+	<notes> 
+12:17 PM 12-24-2019</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
 <repair_order>
@@ -37,9 +36,7 @@ JK, shes cute</notes>
 	<time_created>2019-12-24T11:56:28.282190700</time_created>
 	<time_closed>2024-12-24T11:56:28.282190700</time_closed>
 	<repair_due>2:30 PM</repair_due>
-	<notes>test
-
-11:56 AM 12-24-2019</notes>
+	<notes> </notes>
 	<is_waiting>Yes</is_waiting>
 </repair_order>
 </active_list>

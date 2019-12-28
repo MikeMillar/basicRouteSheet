@@ -30,6 +30,8 @@ public class DialogController {
     @FXML private TextArea inputField;
     
     @FXML private TextField singletonEditTextField;
+    
+    @FXML private ComboBox editDueTime;
 
     public RepairOrder addRO() {
         String roNum = roNumField.getText().trim();
@@ -81,6 +83,13 @@ public class DialogController {
         String newTech = singletonEditTextField.getText().trim();
         if (!newTech.isEmpty()) {
             ro.setTech(newTech);
+        }
+    }
+    
+    public void updateDueTime(RepairOrder ro) {
+        String newDueTime = editDueTime.getValue().toString();
+        if (newDueTime != null || !newDueTime.isEmpty()) {
+            ro.setTimeDue(newDueTime);
         }
     }
 }

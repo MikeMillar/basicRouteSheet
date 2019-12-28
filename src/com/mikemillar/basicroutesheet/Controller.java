@@ -149,34 +149,35 @@ public class Controller {
             refreshList();
         }
     }
-//
-//    public void showEditDueTimeDialog() {
-//        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
-//        Dialog<ButtonType> dialog = new Dialog<>();
-//        dialog.initOwner(mainBorderPane.getScene().getWindow());
-//        dialog.setTitle("Edit Repair Order Due Time");
-//        dialog.setHeaderText("Select new due time.");
-//        FXMLLoader fxmlLoader = new FXMLLoader();
-//        fxmlLoader.setLocation(getClass().getResource("ADD FXML FILE HERE"));
-//        try {
-//            dialog.getDialogPane().setContent(fxmlLoader.load());
-//        } catch (IOException e) {
-//            System.out.println("Could not load the dialog");
-//            e.printStackTrace();
-//            return;
-//        }
-//
-//        DialogController controller = fxmlLoader.getController();
-//
-//        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
-//        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
-//
-//        Optional<ButtonType> result = dialog.showAndWait();
-//        if (result.isPresent() && result.get() == ButtonType.OK) {
-//            controller.updateDueTime();
-//        }
-//    }
-//
+
+    public void showEditDueTimeDialog() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Edit Repair Order Due Time");
+        dialog.setHeaderText("Select new due time.");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("dueTimeDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Could not load the dialog");
+            e.printStackTrace();
+            return;
+        }
+
+        DialogController controller = fxmlLoader.getController();
+
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            controller.updateDueTime(ro);
+            refreshList();
+        }
+    }
+
 //    public void showEditCustomerDialog() {
 //        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
 //        Dialog<ButtonType> dialog = new Dialog<>();

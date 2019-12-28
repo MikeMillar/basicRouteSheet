@@ -1,0 +1,48 @@
+.noStatus {
+  -fx-background-color: white;
+  -fx-text-fill: black;
+}
+
+.attnAdviser {
+  -fx-background-color: blue;
+}
+
+.attnTech {
+  -fx-background-color: green;
+}
+
+.authHold {
+  -fx-background-color: purple;
+}
+
+.attnParts {
+  -fx-background-color: yellow;
+}
+
+.partsHold {
+  -fx-background-color: brown;
+}
+
+.vehPickedUp {
+  -fx-background-color: DimGrey;
+}
+
+.decRecs {
+  -fx-background-color: red;
+}
+
+.techWork {
+  -fx-background-color: DarkGreen;
+}
+
+.vehComplete {
+  -fx-background-color: DarkCyan;
+}
+
+.partsWork {
+  -fx-background-color: DarkKhaki;
+}
+
+.vehReady {
+  -fx-background-color: DarkGrey;
+}

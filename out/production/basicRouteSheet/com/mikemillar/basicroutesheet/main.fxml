@@ -26,13 +26,13 @@
                         <SeparatorMenuItem />
                         <MenuItem text="Open RO Details" />
                         <SeparatorMenuItem />
-                        <MenuItem text="Set RO to Active" onAction="#setRepairOrderActive"/>
+                        <MenuItem onAction="#setRepairOrderActive" text="Set RO to Active" />
                         <SeparatorMenuItem />
-                        <MenuItem text="Close RO with SOP" onAction="#setInactiveSOP"/>
+                        <MenuItem onAction="#setInactiveSOP" text="Close RO with SOP" />
                         <SeparatorMenuItem />
-                        <MenuItem text="Void RO" onAction="#voidRepairOrder"/>
+                        <MenuItem onAction="#voidRepairOrder" text="Void RO" />
                         <SeparatorMenuItem />
-                        <MenuItem text="Close RO " onAction="#closeRepairOrder"/>
+                        <MenuItem onAction="#closeRepairOrder" text="Close RO " />
                     </items>
                 </Menu>
                 <Menu text="Notes">
@@ -83,24 +83,24 @@
                 <fx:define>
                     <ToggleGroup fx:id="listToggleGroup" />
                 </fx:define>
-                <RadioButton text="Active RO List" toggleGroup="$listToggleGroup" onAction="#toggleList"
-                selected="true" fx:id="activeListButton">
+                <RadioButton fx:id="activeListButton" onAction="#toggleList" selected="true" text="Active RO List">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin>
+               <toggleGroup>
+                  <ToggleGroup fx:id="listToggleGroup" />
+               </toggleGroup>
                 </RadioButton>
-                <RadioButton text="Inactive SOP List" toggleGroup="$listToggleGroup" onAction="#toggleList"
-                fx:id="orderListButton">
+                <RadioButton fx:id="orderListButton" onAction="#toggleList" text="Inactive SOP List" toggleGroup="$listToggleGroup">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></RadioButton>
-                <RadioButton text="Closed RO List" toggleGroup="$listToggleGroup" onAction="#toggleList"
-                fx:id="closedListButton">
+                <RadioButton fx:id="closedListButton" onAction="#toggleList" text="Closed RO List" toggleGroup="$listToggleGroup">
                <HBox.margin>
                   <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
                </HBox.margin></RadioButton>
             </HBox>
-            <TableView fx:id="activeTable" VBox.vgrow="ALWAYS">
+            <TableView fx:id="activeTable" stylesheets="@rowStyles.css" VBox.vgrow="ALWAYS">
                 <!--            Main Display for ROs-->
                 <columnResizePolicy>
                     <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />

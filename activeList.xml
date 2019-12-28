@@ -9,7 +9,7 @@
 	<mileage>10</mileage>
 	<customer_name>Garcia Hond</customer_name>
 	<phone_number>505-260-5000</phone_number>
-	<status>Vehicle Picked Up</status>
+	<status>Authorization Hold</status>
 	<jobs>Accessories</jobs>
 	<adviser>Mike</adviser>
 	<tech>Dominic</tech>
@@ -28,7 +28,7 @@
 	<mileage>98000</mileage>
 	<customer_name>Cassy Gutierrez "Sassy"</customer_name>
 	<phone_number>505-417-3390</phone_number>
-	<status>Declined Recommendations</status>
+	<status>Attention Adviser</status>
 	<jobs>100k Service</jobs>
 	<adviser>Mike Millar</adviser>
 	<tech>Andre Perry</tech>

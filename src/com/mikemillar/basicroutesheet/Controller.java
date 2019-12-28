@@ -4,11 +4,15 @@ import com.mikemillar.basicroutesheet.datamodels.Refresher;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrder;
 import com.mikemillar.basicroutesheet.datamodels.RepairOrderData;
 import javafx.application.Platform;
+import javafx.beans.value.ChangeListener;
+import javafx.collections.ListChangeListener;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.layout.BorderPane;
+import javafx.util.Callback;
 
 import java.io.IOException;
 import java.util.Optional;
@@ -29,6 +33,7 @@ public class Controller {
         activeTable.setItems(RepairOrderData.getRoList());
         refresher = new Refresher(this,60000,60000);
         Main.setRefresher(refresher);
+        refreshList();
     }
     
     public void showNewRODialog() {
@@ -155,9 +160,91 @@ public class Controller {
         ro.setStatus(srcText);
         refreshList();
     }
+    
+    public void setRowStyle() {
+        activeTable.setRowFactory(row -> new TableRow<RepairOrder>() {
+            @Override
+            public void updateItem(RepairOrder ro, boolean empty) {
+                super.updateItem(ro,empty);
+
+                if (ro == null || empty) {
+                    setStyle("");
+                } else {
+                    switch (ro.getStatus()) {
+                        case "No Status":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-text-fill: black; -fx-background-color: white");
+                            }
+                            break;
+                        case "Attention Adviser":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: blue");
+                            }
+                            break;
+                        case "Attention Tech":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: green");
+                            }
+                            break;
+                        case "Authorization Hold":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: purple");
+                            }
+                            break;
+                        case "Attention Parts":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: yellow");
+                            }
+                            break;
+                        case "Parts Hold":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: brown");
+                            }
+                            break;
+                        case "Vehicle Picked Up":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: DimGrey");
+                            }
+                            break;
+                        case "Declined Recommendations":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: red");
+                            }
+                            break;
+                        case "Tech Working on Vehicle":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: DarkGreen");
+                            }
+                            break;
+                        case "Vehicle Complete":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: DarkCyan");
+                            }
+                            break;
+                        case "Parts Working":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: DarkKhaki");
+                            }
+                            break;
+                        case "Vehicle ready for delivery":
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle("-fx-background-color: DarkGrey");
+                            }
+                            break;
+                        default:
+                            for (int i = 0; i < getChildren().size(); i++) {
+                                getChildren().get(i).setStyle(null);
+                            }
+                    }
+                }
+
+            }
+        });
+    }
 
     public void refreshList() {
         RepairOrderData.getInstance().updateList();
+        setRowStyle();
         activeTable.refresh();
     }
     

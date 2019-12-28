@@ -40,22 +40,26 @@
 	<is_waiting>No</is_waiting>
 </repair_order>
 <repair_order>
-	<ro_number>987654</ro_number>
-	<tag_number>9876</tag_number>
-	<year>2018</year>
-	<make>Toyota</make>
-	<model>Tundra</model>
-	<mileage>15858</mileage>
-	<customer_name>Garcia Honda</customer_name>
-	<phone_number>505-260-5001</phone_number>
+	<ro_number>555555</ro_number>
+	<tag_number>5555</tag_number>
+	<year>2015</year>
+	<make>Honda</make>
+	<model>CR-V</model>
+	<mileage>98,145</mileage>
+	<customer_name>John Roadster</customer_name>
+	<phone_number>555-555-5555</phone_number>
 	<status>No Status</status>
-	<jobs>Accessories</jobs>
-	<adviser>Lee Armijo</adviser>
-	<tech>Khoa Nguyen</tech>
+	<jobs>Tune Up</jobs>
+	<adviser>Mike Millar</adviser>
+	<tech>Otto</tech>
 	<time_created>2019-12-19T21:37:58.970413300</time_created>
 	<time_closed>2024-12-19T21:37:58.971413300</time_closed>
-	<repair_due>8:00 AM</repair_due>
-	<notes>adventure package</notes>
+	<repair_due>4:00 PM</repair_due>
+	<notes>customer approved tune up
+01:58 PM 12-28-2019
+customer approved tune up test
+01:58 PM 12-28-2019
+test</notes>
 	<is_waiting>No</is_waiting>
 </repair_order>
 </active_list>

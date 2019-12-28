@@ -236,6 +236,35 @@ public class Controller {
         }
     }
     
+    public void showEditAllDialog() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Edit All Repair Order Information");
+        dialog.setHeaderText("Type Updated Repair Order Information");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("newRepairOrderDialog.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Could not load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        
+        DialogController controller = fxmlLoader.getController();
+        controller.loadRepairOrder(ro);
+        
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            controller.updateRepairOrder(ro);
+            refreshList();
+        }
+    }
+    
     public void setRepairOrderActive() {
         RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
         if (ro.openRepairOrder()) {

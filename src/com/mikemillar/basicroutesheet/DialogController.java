@@ -60,6 +60,59 @@ public class DialogController {
         RepairOrderData.getInstance().addToList(ro,RepairOrderData.roList);
         return ro;
     }
+    
+    public void loadRepairOrder(RepairOrder ro) {
+        roNumField.setText("" + ro.getRepairOrderNumber());
+        tagNumField.setText(ro.getTagNumber());
+        yearField.setText("" + ro.getYear());
+        makeField.setText(ro.getMake());
+        modelField.setText(ro.getModel());
+        mileField.setText(ro.getMileage());
+        customerNameField.setText(ro.getCustomerName());
+        phoneNumField.setText(ro.getPhoneNumber());
+        jobsField.setText(ro.getJobs());
+        adviserField.setText(ro.getAdviser());
+        techField.setText(ro.getTech());
+        notesField.setText(ro.getNotes());
+        dueTime.setValue(ro.getTimeDue());
+        waiterField.setValue(ro.isWaiting());
+    }
+    
+    public void updateRepairOrder(RepairOrder ro) {
+        int roNum = Integer.parseInt(roNumField.getText().trim());
+        String tag = tagNumField.getText().trim();
+        int year = Integer.parseInt(yearField.getText().trim());
+        String make = makeField.getText().trim();
+        String model = modelField.getText().trim();
+        String mile = mileField.getText().trim();
+        String customer = customerNameField.getText().trim();
+        String phone = phoneNumField.getText().trim();
+        String jobs = jobsField.getText().trim();
+        String adviser = adviserField.getText().trim();
+        String tech = techField.getText().trim();
+        String notes = notesField.getText().trim();
+        String due = dueTime.getValue().toString();
+        String waiter = waiterField.getValue().toString();
+        if (roNum > 9999 || !tag.isEmpty() || year > 999 || !make.isEmpty() ||
+            !model.isEmpty() || !mile.isEmpty() || !customer.isEmpty() || !phone.isEmpty() ||
+            !jobs.isEmpty() || !adviser.isEmpty() || !tech.isEmpty() || !notes.isEmpty() ||
+            !due.isEmpty() || !waiter.isEmpty()) {
+            ro.setRepairOrderNumber(roNum);
+            ro.setTagNumber(tag);
+            ro.setYear(year);
+            ro.setMake(make);
+            ro.setModel(model);
+            ro.setMileage(mile);
+            ro.setCustomerName(customer);
+            ro.setPhoneNumber(phone);
+            ro.setJobs(jobs);
+            ro.setAdviser(adviser);
+            ro.setTech(tech);
+            ro.addNote(notes);
+            ro.setTimeDue(due);
+            ro.setWaiting(waiter);
+        }
+    }
 
     public void loadNotes(RepairOrder ro) {
         displayBox.setText(ro.getNotes());

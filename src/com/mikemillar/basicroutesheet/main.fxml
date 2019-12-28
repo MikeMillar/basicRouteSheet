@@ -73,6 +73,19 @@
                         <MenuItem text="See Status History" />
                     </items>
                 </Menu>
+                <Menu text="Update">
+                    <items>
+                        <MenuItem text="Assign Adviser" onAction="#showEditAdviserDialog"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Assign Technician"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Update Due Time"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Update Customer Information"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Update Vehicle Information"/>
+                    </items>
+                </Menu>
             </MenuBar>
         </VBox>
     </top>

@@ -28,6 +28,8 @@ public class DialogController {
 
     @FXML private TextArea displayBox;
     @FXML private TextArea inputField;
+    
+    @FXML private TextField singletonEditTextField;
 
     public RepairOrder addRO() {
         String roNum = roNumField.getText().trim();
@@ -57,6 +59,17 @@ public class DialogController {
         String noteToAdd = inputField.getText().trim();
         if (!noteToAdd.isEmpty()) {
             ro.addNote(noteToAdd);
+        }
+    }
+    
+    public void loadAdviser(RepairOrder ro) {
+        singletonEditTextField.setText(ro.getAdviser());
+    }
+    
+    public void updateAdviser(RepairOrder ro) {
+        String newAdviser = singletonEditTextField.getText().trim();
+        if (!newAdviser.isEmpty()) {
+            ro.setAdviser(newAdviser);
         }
     }
 }

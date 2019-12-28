@@ -92,6 +92,146 @@ public class Controller {
         }
     }
     
+    public void showEditAdviserDialog() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.initOwner(mainBorderPane.getScene().getWindow());
+        dialog.setTitle("Assign Adviser to Repair Order");
+        dialog.setHeaderText("Type name of adviser.");
+        FXMLLoader fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("singleTextFieldEdit.fxml"));
+        try {
+            dialog.getDialogPane().setContent(fxmlLoader.load());
+        } catch (IOException e) {
+            System.out.println("Could not load the dialog");
+            e.printStackTrace();
+            return;
+        }
+        
+        DialogController controller = fxmlLoader.getController();
+        controller.loadAdviser(ro);
+        
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+        
+        Optional<ButtonType> result = dialog.showAndWait();
+        if (result.isPresent() && result.get() == ButtonType.OK) {
+            controller.updateAdviser(ro);
+            refreshList();
+        }
+    }
+    
+//    public void showEditTechDialog() {
+//        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+//        Dialog<ButtonType> dialog = new Dialog<>();
+//        dialog.initOwner(mainBorderPane.getScene().getWindow());
+//        dialog.setTitle("Assign Technician to Repair Order");
+//        dialog.setHeaderText("Type name of Technician.");
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setLocation(getClass().getResource("ADD FXML FILE HERE"));
+//        try {
+//            dialog.getDialogPane().setContent(fxmlLoader.load());
+//        } catch (IOException e) {
+//            System.out.println("Could not load the dialog");
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        DialogController controller = fxmlLoader.getController();
+//        controller.loadTech();
+//
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+//
+//        Optional<ButtonType> result = dialog.showAndWait();
+//        if (result.isPresent() && result.get() == ButtonType.OK) {
+//            controller.updateTech();
+//        }
+//    }
+//
+//    public void showEditDueTimeDialog() {
+//        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+//        Dialog<ButtonType> dialog = new Dialog<>();
+//        dialog.initOwner(mainBorderPane.getScene().getWindow());
+//        dialog.setTitle("Edit Repair Order Due Time");
+//        dialog.setHeaderText("Select new due time.");
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setLocation(getClass().getResource("ADD FXML FILE HERE"));
+//        try {
+//            dialog.getDialogPane().setContent(fxmlLoader.load());
+//        } catch (IOException e) {
+//            System.out.println("Could not load the dialog");
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        DialogController controller = fxmlLoader.getController();
+//
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+//
+//        Optional<ButtonType> result = dialog.showAndWait();
+//        if (result.isPresent() && result.get() == ButtonType.OK) {
+//            controller.updateDueTime();
+//        }
+//    }
+//
+//    public void showEditCustomerDialog() {
+//        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+//        Dialog<ButtonType> dialog = new Dialog<>();
+//        dialog.initOwner(mainBorderPane.getScene().getWindow());
+//        dialog.setTitle("Edit Customer Information");
+//        dialog.setHeaderText("Type updated customer information");
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setLocation(getClass().getResource("ADD FXML FILE HERE"));
+//        try {
+//            dialog.getDialogPane().setContent(fxmlLoader.load());
+//        } catch (IOException e) {
+//            System.out.println("Could not load the dialog");
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        DialogController controller = fxmlLoader.getController();
+//        controller.loadCustomer();
+//
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+//
+//        Optional<ButtonType> result = dialog.showAndWait();
+//        if (result.isPresent() && result.get() == ButtonType.OK) {
+//            controller.updateCustomer();
+//        }
+//    }
+//
+//    public void showEditVehicleDialog() {
+//        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+//        Dialog<ButtonType> dialog = new Dialog<>();
+//        dialog.initOwner(mainBorderPane.getScene().getWindow());
+//        dialog.setTitle("Edit Vehicle Information");
+//        dialog.setHeaderText("Type updated vehicle informating");
+//        FXMLLoader fxmlLoader = new FXMLLoader();
+//        fxmlLoader.setLocation(getClass().getResource("ADD FXML FILE HERE"));
+//        try {
+//            dialog.getDialogPane().setContent(fxmlLoader.load());
+//        } catch (IOException e) {
+//            System.out.println("Could not load the dialog");
+//            e.printStackTrace();
+//            return;
+//        }
+//
+//        DialogController controller = fxmlLoader.getController();
+//        controller.loadVehicle();
+//
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.OK);
+//        dialog.getDialogPane().getButtonTypes().add(ButtonType.CANCEL);
+//
+//        Optional<ButtonType> result = dialog.showAndWait();
+//        if (result.isPresent() && result.get() == ButtonType.OK) {
+//            controller.updateVehicle();
+//        }
+//    }
+    
     public void setRepairOrderActive() {
         RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
         if (ro.openRepairOrder()) {

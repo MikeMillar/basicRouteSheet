@@ -83,7 +83,9 @@
                         <SeparatorMenuItem/>
                         <MenuItem text="Update Customer Information" onAction="#showEditCustomerDialog"/>
                         <SeparatorMenuItem/>
-                        <MenuItem text="Update Vehicle Information"/>
+                        <MenuItem text="Update Vehicle Information" onAction="#showEditVehicleDialog"/>
+                        <SeparatorMenuItem/>
+                        <MenuItem text="Update All"/>
                     </items>
                 </Menu>
             </MenuBar>

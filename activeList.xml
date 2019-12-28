@@ -42,10 +42,10 @@
 <repair_order>
 	<ro_number>987654</ro_number>
 	<tag_number>9876</tag_number>
-	<year>2020</year>
-	<make>Honda</make>
-	<model>Pilot</model>
-	<mileage>10</mileage>
+	<year>2018</year>
+	<make>Toyota</make>
+	<model>Tundra</model>
+	<mileage>15858</mileage>
 	<customer_name>Garcia Honda</customer_name>
 	<phone_number>505-260-5001</phone_number>
 	<status>No Status</status>

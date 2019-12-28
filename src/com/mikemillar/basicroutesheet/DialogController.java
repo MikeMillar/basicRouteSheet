@@ -35,6 +35,11 @@ public class DialogController {
     
     @FXML private TextField updateCustomerName;
     @FXML private TextField updateCustomerNumber;
+    
+    @FXML private TextField updateYear;
+    @FXML private TextField updateMake;
+    @FXML private TextField updateModel;
+    @FXML private TextField updateMileage;
 
     public RepairOrder addRO() {
         String roNum = roNumField.getText().trim();
@@ -108,6 +113,27 @@ public class DialogController {
         if (!newName.isEmpty() || !newPhone.isEmpty()) {
             ro.setCustomerName(newName);
             ro.setPhoneNumber(newPhone);
+        }
+    }
+    
+    public void loadVehicle(RepairOrder ro) {
+        updateYear.setText("" + ro.getYear());
+        updateMake.setText(ro.getMake());
+        updateModel.setText(ro.getModel());
+        updateMileage.setText(ro.getMileage());
+    }
+    
+    public void updateVehicle(RepairOrder ro) {
+        int newYear = Integer.parseInt(updateYear.getText().trim());
+        String newMake = updateMake.getText().trim();
+        String newModel = updateModel.getText().trim();
+        String newMileage = updateMileage.getText().trim();
+        
+        if (newYear > 999 || !newMake.isEmpty() || !newModel.isEmpty() || !newMileage.isEmpty()) {
+            ro.setYear(newYear);
+            ro.setMake(newMake);
+            ro.setModel(newModel);
+            ro.setMileage(newMileage);
         }
     }
 }

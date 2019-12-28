@@ -32,6 +32,9 @@ public class DialogController {
     @FXML private TextField singletonEditTextField;
     
     @FXML private ComboBox editDueTime;
+    
+    @FXML private TextField updateCustomerName;
+    @FXML private TextField updateCustomerNumber;
 
     public RepairOrder addRO() {
         String roNum = roNumField.getText().trim();
@@ -90,6 +93,21 @@ public class DialogController {
         String newDueTime = editDueTime.getValue().toString();
         if (newDueTime != null || !newDueTime.isEmpty()) {
             ro.setTimeDue(newDueTime);
+        }
+    }
+    
+    public void loadCustomer(RepairOrder ro) {
+        updateCustomerName.setText(ro.getCustomerName());
+        updateCustomerNumber.setText(ro.getPhoneNumber());
+    }
+    
+    public void updateCustomer(RepairOrder ro) {
+        String newName = updateCustomerName.getText().trim();
+        String newPhone = updateCustomerNumber.getText().trim();
+        
+        if (!newName.isEmpty() || !newPhone.isEmpty()) {
+            ro.setCustomerName(newName);
+            ro.setPhoneNumber(newPhone);
         }
     }
 }

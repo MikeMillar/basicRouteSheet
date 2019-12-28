@@ -81,7 +81,7 @@
                         <SeparatorMenuItem/>
                         <MenuItem text="Update Due Time" onAction="#showEditDueTimeDialog"/>
                         <SeparatorMenuItem/>
-                        <MenuItem text="Update Customer Information"/>
+                        <MenuItem text="Update Customer Information" onAction="#showEditCustomerDialog"/>
                         <SeparatorMenuItem/>
                         <MenuItem text="Update Vehicle Information"/>
                     </items>

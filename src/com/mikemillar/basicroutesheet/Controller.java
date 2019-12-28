@@ -254,7 +254,7 @@ public class Controller {
 
     public void refreshList() {
         RepairOrderData.getInstance().updateList();
-        setRowStyle();
+//        setRowStyle(); --- disabled until further research can be done to solve issues
         activeTable.refresh();
     }
     

@@ -68,7 +68,7 @@
                             </items>
                         </Menu>
                         <SeparatorMenuItem />
-                        <MenuItem text="Clear Status" onAction="#clearStatus"/>
+                        <MenuItem onAction="#clearStatus" text="Clear Status" />
                         <SeparatorMenuItem />
                         <MenuItem text="See Status History" />
                     </items>

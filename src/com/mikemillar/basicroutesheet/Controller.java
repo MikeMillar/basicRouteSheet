@@ -241,6 +241,16 @@ public class Controller {
             }
         });
     }
+    
+    public void clearStatus() {
+        RepairOrder ro = activeTable.getSelectionModel().getSelectedItem();
+        if (ro != null) {
+            ro.setStatus("No Status");
+            refreshList();
+        } else {
+            System.out.println("Unable to clear status");
+        }
+    }
 
     public void refreshList() {
         RepairOrderData.getInstance().updateList();

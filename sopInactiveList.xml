@@ -9,7 +9,7 @@
 	<mileage>1</mileage>
 	<customer_name>Mike</customer_name>
 	<phone_number>111-111-1111</phone_number>
-	<status>Vehicle Picked Up</status>
+	<status>No Status</status>
 	<jobs>LOF</jobs>
 	<adviser>Mike</adviser>
 	<tech>Mike</tech>
@@ -30,7 +30,7 @@ ordered rack and pinion</notes>
 	<mileage>15000</mileage>
 	<customer_name>Kevin Millar</customer_name>
 	<phone_number>505-828-2922</phone_number>
-	<status>Authorization Hold</status>
+	<status>No Status</status>
 	<jobs>LOF</jobs>
 	<adviser>Mike Millar</adviser>
 	<tech>Ish Torres</tech>

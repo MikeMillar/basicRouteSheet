@@ -72,4 +72,15 @@ public class DialogController {
             ro.setAdviser(newAdviser);
         }
     }
+    
+    public void loadTech(RepairOrder ro) {
+        singletonEditTextField.setText(ro.getTech());
+    }
+    
+    public void updateTech(RepairOrder ro) {
+        String newTech = singletonEditTextField.getText().trim();
+        if (!newTech.isEmpty()) {
+            ro.setTech(newTech);
+        }
+    }
 }

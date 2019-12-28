@@ -77,7 +77,7 @@
                     <items>
                         <MenuItem text="Assign Adviser" onAction="#showEditAdviserDialog"/>
                         <SeparatorMenuItem/>
-                        <MenuItem text="Assign Technician"/>
+                        <MenuItem text="Assign Technician" onAction="#showEditTechDialog"/>
                         <SeparatorMenuItem/>
                         <MenuItem text="Update Due Time"/>
                         <SeparatorMenuItem/>
